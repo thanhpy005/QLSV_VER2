@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import model.SinhVien;
 import java.text.ParseException;
@@ -19,7 +21,8 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
     
     public GD_ThemSinhVien() {
         initComponents();
-        
+        ButtonGroup TrangThai = new ButtonGroup();
+        ButtonGroup GioiTinh = new ButtonGroup();
         sinhVienDAO = new SinhVienDAO();
         
         Add.addActionListener(this);
@@ -30,6 +33,11 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         MajorComboBox.addItem("QT");
         MajorComboBox.addItem("KHMT");
         MajorComboBox.addItem("MK");
+        TrangThai.add(StudyingCheckBox);
+        TrangThai.add(GraduatedCheckBox);
+        GioiTinh.add(MaleCheckBox);
+        GioiTinh.add(FemaleCheckBox);
+
     }
 
     /**
@@ -40,7 +48,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
