@@ -139,12 +139,12 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
 
         TenLabel.setBackground(new java.awt.Color(255, 255, 255));
         TenLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TenLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TenLabel.setOpaque(true);
 
         MsvLabel.setBackground(new java.awt.Color(255, 255, 255));
         MsvLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        MsvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MsvLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MsvLabel.setOpaque(true);
 
         AvatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -224,7 +224,7 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
 
         ClassLabel.setBackground(new java.awt.Color(255, 255, 255));
         ClassLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ClassLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ClassLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ClassLabel.setOpaque(true);
 
         XemTienTrinhHocButton.setText("Xem tiến trình học");
@@ -261,13 +261,12 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(TenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MsvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
                         .addComponent(ClassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(LopLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(AvatarLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(AvatarLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(MsvLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)

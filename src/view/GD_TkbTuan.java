@@ -8,7 +8,9 @@ import controller.TkbDAO;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Properties;
 import model.LichHoc;
 import model.SinhVien;
 
@@ -26,6 +28,26 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
      */
     public GD_TkbTuan(SinhVien s) {
         initComponents();
+        pack();
+        Properties prop = new Properties();
+        try {
+            InputStream input = getClass().getResourceAsStream("/config.properties");
+            if(input != null) {
+                prop.load(input);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    
+        String bgColor = prop.getProperty("backgroundColor", "255,255,255"); // default trắng
+        String[] rgb = bgColor.split(",");
+        int r = Integer.parseInt(rgb[0].trim());
+        int g = Integer.parseInt(rgb[1].trim());
+        int b = Integer.parseInt(rgb[2].trim());
+
+    
+        getContentPane().setBackground(new Color(r, g, b));
         BackButton.addActionListener(this);
         sinhVien = s;
         list = new TkbDAO().XemTKbSV(sinhVien.getId(), sinhVien.getSchoolYear());
@@ -428,9 +450,11 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("THỜI KHÓA BIỂU TUẦN");
+        jLabel1.setOpaque(true);
 
         jLabel2.setBackground(new java.awt.Color(255, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -1821,7 +1845,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(106, 106, 106))
+                .addGap(0, 0, 0))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
