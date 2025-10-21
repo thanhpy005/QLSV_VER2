@@ -8,6 +8,13 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.SinhVien;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.AbstractCellEditor;
+import javax.swing.JButton;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 
 
 public class GD_ShowSinhVien extends javax.swing.JFrame implements ActionListener{
@@ -25,11 +32,14 @@ public class GD_ShowSinhVien extends javax.swing.JFrame implements ActionListene
         list = new SinhVienDAO().getlistSinhVien();
         model = (DefaultTableModel) TableSinhVien.getModel();
         model.setColumnIdentifiers(new Object[]{
-            "Stt","Id","Name","Sex","Dob","Class","Address","Phone","Email","Status","Major","School Year"
+            "Stt","Id","Name","Sex","Dob","Class","Address","Phone","Email","Status","Major","School Year","Hành động"
         });
       
         TableSinhVien.setDefaultEditor(Object.class, null);
         ShowData();
+        int buttonColumnIndex = 12;
+        TableSinhVien.getColumnModel().getColumn(buttonColumnIndex).setCellRenderer(new ButtonRenderer());
+        TableSinhVien.getColumnModel().getColumn(buttonColumnIndex).setCellEditor(new ButtonEditor());
     }
     public void ShowData()
     {
@@ -38,10 +48,11 @@ public class GD_ShowSinhVien extends javax.swing.JFrame implements ActionListene
         for(SinhVien i : list)
         {
             model.addRow(new Object[]{
-                ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear()
+                ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear(),"Chi tiết"
             });
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,4 +157,56 @@ public class GD_ShowSinhVien extends javax.swing.JFrame implements ActionListene
             this.dispose();
         }
     }
+}
+class ButtonRenderer extends JButton implements TableCellRenderer {
+    public ButtonRenderer()
+    {
+        setOpaque(true);
+    }
+    @Override
+    public Component getTableCellRendererComponent(JTable table,Object value,boolean  isSelected,boolean hasFocus,int row, int column)
+    {
+        setText((value == null)? "Information" : value.toString());
+        return this;
+    }
+}
+class ButtonEditor extends AbstractCellEditor implements TableCellEditor,ActionListener{
+    private JButton button;
+    private int currentRow;
+    private JTable table;
+    public ButtonEditor()
+    {
+        button = new JButton("Chi tiết");
+        button.setOpaque(true);
+        button.addActionListener(this);
+    }
+    @Override
+    public Component getTableCellEditorComponent(JTable table,Object value,boolean  isSelected,int row, int column)
+    {
+        this.table = table;
+        this.currentRow = row;
+        button.setText((value == null)? "Chi tiết" : value.toString());
+        return button;
+    }
+    @Override
+    public Object getCellEditorValue()
+    {
+        return button.getText();
+    }
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        Object student = table.getValueAt(currentRow, 1);
+        SinhVien s = new SinhVienDAO().getSinhVien(student.toString());
+        GD_Menu_SV winD_Menu_SV = new GD_Menu_SV(s);
+        winD_Menu_SV.setLocationRelativeTo(null);
+        winD_Menu_SV.setVisible(true);
+       
+    }
+
+    @Override
+    protected void fireEditingStopped() {
+        super.fireEditingStopped(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
 }

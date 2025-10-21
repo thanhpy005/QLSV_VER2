@@ -26,7 +26,7 @@ public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
         list = new TkbDAO().XemTKbSV(s.getId(),s.getSchoolYear());
         sinhVien = s;
         model.setColumnIdentifiers(new Object[]{
-            "STT","Mã môn","Tên môn","Thứ","Tiết bắt đầu","Số tiết","Phòng học","Giảng viên","Thời gian","Kì học"
+            "STT","Mã môn","Tên môn","Thứ","Tiết bắt đầu","Số tiết","Phòng học","Thời gian","Kì học"
         });
         showTable();
     }
@@ -36,7 +36,7 @@ public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
         for(LichHoc i : list)
         {
             model.addRow(new Object[]{
-                ++cnt,i.getMamon(),i.getTenmon(),i.getDayString(),i.getTietBatDau(),i.getSoTiet(),i.getPhonghoc(),i.getGiangvien(),i.getThoiGian(),i.getKiHoc()
+                ++cnt,i.getMamon(),i.getTenmon(),i.getDayString(),i.getTietBatDau(),i.getSoTiet(),i.getPhonghoc(),i.getThoiGian(),i.getKiHoc()
             });
         }
     }

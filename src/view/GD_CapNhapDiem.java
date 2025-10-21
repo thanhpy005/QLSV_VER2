@@ -18,18 +18,20 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
 
     private SinhVienDAO sinhVienDAO;
     private TienTrinhDAO tienTrinhDAO;
+    private SinhVien sinhVien;
     
-    public GD_CapNhapDiem() {
+    public GD_CapNhapDiem(SinhVien sinhVien) {
         initComponents();
-        
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         sinhVienDAO = new SinhVienDAO();
         tienTrinhDAO = new TienTrinhDAO();
-        
+        this.sinhVien = sinhVien;
         TimSinhVienButton.addActionListener(this);
         CapNhapButton.addActionListener(this);
         BackButton.addActionListener(this);
         
-        
+        IdTextField.setText(sinhVien.getId());
+        KiHocTextField.setText(String.valueOf(sinhVien.getSchoolYear()));
     }
 
     /**
@@ -158,7 +160,7 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GD_CapNhapDiem().setVisible(true));
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -181,9 +183,6 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
         else if(e.getSource().equals(CapNhapButton)) btnCapNhapClick();
         else
         {
-            GD_Menu_Admin winAdmin = new GD_Menu_Admin();
-            winAdmin.setLocationRelativeTo(null);
-            winAdmin.setVisible(true);
             this.dispose();
         }
      }

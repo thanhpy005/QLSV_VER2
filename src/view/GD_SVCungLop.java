@@ -2,10 +2,16 @@
 package view;
 
 import controller.SinhVienDAO;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.AbstractCellEditor;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import model.SinhVien;
 
 
@@ -27,19 +33,22 @@ public class GD_SVCungLop extends javax.swing.JFrame implements ActionListener{
         list = new SinhVienDAO().getlistSinhVien();
         int cnt = 0;
         model.setColumnIdentifiers(new Object[]{
-            "STT","MSV","Tên","Giới tính","Ngày sinh","Lớp","Địa chỉ","Số điện thoại","Email","Trạng thái","Chuyên ngành","Kì học"
+            "STT","MSV","Tên","Giới tính","Ngày sinh","Lớp","Địa chỉ","Số điện thoại","Email","Trạng thái","Chuyên ngành","Kì học","Hanh dong"
         });
         for(SinhVien i : list)
         {
             if(i.getMainClass().equals(sinhVien.getMainClass()))
             {
                 model.addRow(new Object[]{
-                    ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear()
+                    ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear(),"Chi tiết"
                 });
             }
         }
         
         SvTable.setDefaultEditor(Object.class, null);
+        int columnIndex = 12;
+        
+    
     }
 
     /**
@@ -73,20 +82,17 @@ public class GD_SVCungLop extends javax.swing.JFrame implements ActionListener{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(914, Short.MAX_VALUE)
                 .addComponent(BackButton)
                 .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(BackButton)
                 .addContainerGap())
         );

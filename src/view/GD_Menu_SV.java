@@ -3,6 +3,7 @@ package view;
 
 import controller.SinhVienDAO;
 import controller.TienTrinhDAO;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.SinhVien;
@@ -11,6 +12,8 @@ import java.text.SimpleDateFormat;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import java.awt.Image;
+import java.io.InputStream;
+import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -26,11 +29,30 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
     
     public GD_Menu_SV(SinhVien s) {
         initComponents();
-        
+        pack();
+        Properties prop = new Properties();
+        try {
+            InputStream input = getClass().getResourceAsStream("/config.properties");
+            if(input != null) {
+                prop.load(input);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String bgColor = prop.getProperty("backgroundColor", "255,255,255"); // default trắng
+        String[] rgb = bgColor.split(",");
+        int r = Integer.parseInt(rgb[0].trim());
+        int g = Integer.parseInt(rgb[1].trim());
+        int b = Integer.parseInt(rgb[2].trim());
+
+    
+        getContentPane().setBackground(new Color(r, g, b));
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         sinhVienDAO = new SinhVienDAO();
         tienTrinhDAO = new TienTrinhDAO();
         
         sinhVien = s;
+        DangKiMonButton.addActionListener(this);
         BackButton.addActionListener(this);
         DoiMkButton.addActionListener(this);
         XemTkbButton.addActionListener(this);
@@ -48,7 +70,7 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         SoDienThoaiLabel.setText(s.getPhone());
         TrangThaiLabel.setText(s.getStatus());
         EmailLabel.setText(s.getEmail());
-        CpaLabel.setText(String.valueOf(tienTrinhDAO.getCpa(s)));
+        CpaLabel.setText(String.format("%.1f",tienTrinhDAO.getCpa(s)));
         ImageIcon avatar = sinhVienDAO.getAvatar(MsvLabel.getText());
         if (avatar != null) {
             AvatarLabel.setIcon(avatar);
@@ -99,6 +121,8 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         XemTienTrinhHocButton = new javax.swing.JButton();
         DanhSachLopButton = new javax.swing.JButton();
         ThemAnhButton = new javax.swing.JButton();
+        DangKiMonButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel17.setText("jLabel17");
 
@@ -124,7 +148,6 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         MsvLabel.setOpaque(true);
 
         AvatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AvatarLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\nguye\\Downloads\\avatar.jpg")); // NOI18N
         AvatarLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         BackButton.setText("Đăng xuất");
@@ -136,22 +159,31 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         LopLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LopLabel.setOpaque(true);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Chuyên ngành:");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Giới tính:");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Ngày sinh:");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Địa chỉ:");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Kì học:");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Số điện thoại:");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Trạng thái:");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Email:");
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setText("CPA:");
 
         ChuyenNganhLabel.setBackground(new java.awt.Color(255, 255, 255));
@@ -201,12 +233,22 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
 
         ThemAnhButton.setText("Thêm ảnh");
 
+        DangKiMonButton.setText("Đăng kí môn");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Thông tin sinh viên");
+        jLabel1.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(DangKiMonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(DanhSachLopButton)
                 .addGap(18, 18, 18)
                 .addComponent(XemTienTrinhHocButton)
@@ -216,54 +258,59 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
                 .addComponent(XemTkbButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MsvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(ClassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LopLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(AvatarLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ChuyenNganhLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GioiTinhLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NgaySinhLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DiaChiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NamHocLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SoDienThoaiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TrangThaiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CpaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(MsvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(ClassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LopLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(AvatarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ChuyenNganhLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(GioiTinhLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NgaySinhLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DiaChiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NamHocLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SoDienThoaiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TrangThaiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CpaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BackButton))
+                        .addComponent(BackButton)
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(ThemAnhButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BackButton)
-                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BackButton)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ThemAnhButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +368,8 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
                             .addComponent(DoiMkButton)
                             .addComponent(XemTkbButton)
                             .addComponent(XemTienTrinhHocButton)
-                            .addComponent(DanhSachLopButton))
+                            .addComponent(DanhSachLopButton)
+                            .addComponent(DangKiMonButton))
                         .addGap(14, 14, 14))))
         );
 
@@ -363,6 +411,7 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel ChuyenNganhLabel;
     private javax.swing.JLabel ClassLabel;
     private javax.swing.JLabel CpaLabel;
+    private javax.swing.JButton DangKiMonButton;
     private javax.swing.JButton DanhSachLopButton;
     private javax.swing.JLabel DiaChiLabel;
     private javax.swing.JButton DoiMkButton;
@@ -378,6 +427,7 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel TrangThaiLabel;
     private javax.swing.JButton XemTienTrinhHocButton;
     private javax.swing.JButton XemTkbButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
@@ -397,6 +447,7 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         else if(e.getSource().equals(XemTienTrinhHocButton)) btnXemTthClick();
         else if(e.getSource().equals(DanhSachLopButton)) btnDanhSachLopClick();
         else if(e.getSource().equals(ThemAnhButton)) chonAnh();
+        else if(e.getSource().equals(DangKiMonButton)) btnDangKiMonClick();
         else{
             GD_DangNhap winD_DangNhap= new GD_DangNhap();
             winD_DangNhap.setLocationRelativeTo(null);
@@ -413,9 +464,9 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
     }
     public void btnXemTkbClick()
     {
-        GD_XemTkb winD_XemTkb = new GD_XemTkb(sinhVien);
-        winD_XemTkb.setLocationRelativeTo(null);
-        winD_XemTkb.setVisible(true);
+        GD_TkbTuan winD_TkbTuan = new GD_TkbTuan(sinhVien);
+        winD_TkbTuan.setLocationRelativeTo(null);
+        winD_TkbTuan.setVisible(true);
         this.dispose();
     }
     public void btnXemTthClick()
@@ -430,6 +481,13 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         GD_SVCungLop winCungLop = new GD_SVCungLop(sinhVien);
         winCungLop.setLocationRelativeTo(null);
         winCungLop.setVisible(true);
+        this.dispose();
+    }
+    public void btnDangKiMonClick()
+    {
+        GD_DangKiMon winD_DangKiMon = new GD_DangKiMon(sinhVien);
+        winD_DangKiMon.setLocationRelativeTo(null);
+        winD_DangKiMon.setVisible(true);
         this.dispose();
     }
     public void chonAnh()

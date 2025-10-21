@@ -5,6 +5,7 @@ import controller.SinhVienDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import model.SinhVien;
 
@@ -15,16 +16,23 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GD_SuaSinhVien.class.getName());
 
     private SinhVienDAO sinhVienDAO;
-    
+    private SinhVien s;
     
     public GD_SuaSinhVien() {
         initComponents();
         
         sinhVienDAO = new SinhVienDAO();
-        
+        gioitinh = new ButtonGroup();
+        trangthai = new ButtonGroup();
         BackButton.addActionListener(this);
         UpdateButton.addActionListener(this);
         TimKiemButton.addActionListener(this);
+        XoaSinhVienButton.addActionListener(this);
+        CapNhapDiemButton.addActionListener(this);
+        gioitinh.add(MaleCheckBox);
+        gioitinh.add(FemaleCheckBox);
+        trangthai.add(StudyingCheckBox);
+        trangthai.add(GraduatedCheckBox);
     }
 
     /**
@@ -53,15 +61,19 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         jLabel12 = new javax.swing.JLabel();
         UpdateButton = new javax.swing.JButton();
         SchoolYearTextField = new javax.swing.JTextField();
-        StatusTextField = new javax.swing.JTextField();
         EmailTextField = new javax.swing.JTextField();
         PhoneTextField = new javax.swing.JTextField();
         AddressTextField = new javax.swing.JTextField();
         ClassTextField = new javax.swing.JTextField();
         DobTextField = new javax.swing.JTextField();
-        SexTextField = new javax.swing.JTextField();
         NameTextField = new javax.swing.JTextField();
         MajorComboBox = new javax.swing.JComboBox<>();
+        MaleCheckBox = new javax.swing.JCheckBox();
+        FemaleCheckBox = new javax.swing.JCheckBox();
+        StudyingCheckBox = new javax.swing.JCheckBox();
+        GraduatedCheckBox = new javax.swing.JCheckBox();
+        XoaSinhVienButton = new javax.swing.JButton();
+        CapNhapDiemButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,8 +108,25 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         jLabel12.setText("School Year:");
 
         UpdateButton.setText("Cập nhập");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
+            }
+        });
 
         MajorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IT", "QT", "MK", "BC", "KHMT" }));
+
+        MaleCheckBox.setText("Male");
+
+        FemaleCheckBox.setText("Female");
+
+        StudyingCheckBox.setText("Studying");
+
+        GraduatedCheckBox.setText("Graduated");
+
+        XoaSinhVienButton.setText("Xóa sinh viên");
+
+        CapNhapDiemButton.setText("Cập nhập điểm");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,33 +152,43 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(SchoolYearTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                                    .addComponent(StatusTextField)
-                                    .addComponent(EmailTextField)
-                                    .addComponent(PhoneTextField)
-                                    .addComponent(AddressTextField)
-                                    .addComponent(ClassTextField)
-                                    .addComponent(DobTextField)
-                                    .addComponent(SexTextField)
-                                    .addComponent(NameTextField)
-                                    .addComponent(MajorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(141, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(UpdateButton)
-                .addGap(225, 225, 225))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(SchoolYearTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                                            .addComponent(EmailTextField)
+                                            .addComponent(PhoneTextField)
+                                            .addComponent(AddressTextField)
+                                            .addComponent(ClassTextField)
+                                            .addComponent(DobTextField)
+                                            .addComponent(NameTextField)
+                                            .addComponent(MajorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(MaleCheckBox)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(FemaleCheckBox))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(StudyingCheckBox)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(GraduatedCheckBox))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(UpdateButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(XoaSinhVienButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CapNhapDiemButton)))))))
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +213,8 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
                     .addComponent(TimKiemButton)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(SexTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(MaleCheckBox)
+                        .addComponent(FemaleCheckBox)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -198,7 +238,8 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(StatusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(StudyingCheckBox)
+                    .addComponent(GraduatedCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -207,13 +248,20 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(SchoolYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(UpdateButton)
-                .addGap(18, 18, 18))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UpdateButton)
+                    .addComponent(XoaSinhVienButton)
+                    .addComponent(CapNhapDiemButton))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,18 +291,22 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTextField;
     private javax.swing.JButton BackButton;
+    private javax.swing.JButton CapNhapDiemButton;
     private javax.swing.JTextField ClassTextField;
     private javax.swing.JTextField DobTextField;
     private javax.swing.JTextField EmailTextField;
+    private javax.swing.JCheckBox FemaleCheckBox;
+    private javax.swing.JCheckBox GraduatedCheckBox;
     private javax.swing.JTextField IdTextField;
     private javax.swing.JComboBox<String> MajorComboBox;
+    private javax.swing.JCheckBox MaleCheckBox;
     private javax.swing.JTextField NameTextField;
     private javax.swing.JTextField PhoneTextField;
     private javax.swing.JTextField SchoolYearTextField;
-    private javax.swing.JTextField SexTextField;
-    private javax.swing.JTextField StatusTextField;
+    private javax.swing.JCheckBox StudyingCheckBox;
     private javax.swing.JButton TimKiemButton;
     private javax.swing.JButton UpdateButton;
+    private javax.swing.JButton XoaSinhVienButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -268,11 +320,15 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
+    private ButtonGroup gioitinh;
+    private ButtonGroup trangthai;
     @Override
     public void actionPerformed(ActionEvent e)
     {
         if(e.getSource().equals(TimKiemButton)) btnTimKiemClick();
         else if(e.getSource().equals(UpdateButton)) btnCapNhapClick();
+        else if(e.getSource().equals(XoaSinhVienButton)) btnXoaSinhVienClick();
+        else if(e.getSource().equals(CapNhapDiemButton)) btnCapNhapDiemClick();
         else
         {
             GD_Menu_Admin winAdmin = new GD_Menu_Admin();
@@ -283,16 +339,20 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
     }
     public void btnTimKiemClick()
     {
-        SinhVien s = sinhVienDAO.getSinhVien(IdTextField.getText());
+        s = sinhVienDAO.getSinhVien(IdTextField.getText());
         IdTextField.setText(s.getId());
         NameTextField.setText(s.getName());
-        SexTextField.setText(s.getSex());
+        boolean check = s.getStatus().equals("Studying");
+        StudyingCheckBox.setSelected(check);
+        GraduatedCheckBox.setSelected(!check);
         DobTextField.setText(new SimpleDateFormat("dd/MM/yyyy").format(s.getDob()));
         ClassTextField.setText(s.getMainClass());
         AddressTextField.setText(s.getAddress());
         PhoneTextField.setText(s.getPhone());
         EmailTextField.setText(s.getEmail());
-        StatusTextField.setText(s.getStatus());
+        check = s.getSex().equals("Male");
+        MaleCheckBox.setSelected(check);
+        FemaleCheckBox.setSelected(!check);
         if(s.getMajor().equals("IT")) MajorComboBox.setSelectedIndex(0);
         else if(s.getMajor().equals("QT")) MajorComboBox.setSelectedIndex(1);
         else if(s.getMajor().equals("MK")) MajorComboBox.setSelectedIndex(2);
@@ -302,35 +362,70 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
     }
     public void btnCapNhapClick()
     {
-        SinhVien s = new SinhVien();
-        s.setId(IdTextField.getText());
-        s.setName(NameTextField.getText());
-        s.setSex(SexTextField.getText());
+        SinhVien sv = new SinhVien();
+        sv.setId(IdTextField.getText());
+        sv.setName(NameTextField.getText());
+        if(MaleCheckBox.isSelected()) sv.setSex("Male");
+        else sv.setSex("Female");
         try{
-             s.setDob(new SimpleDateFormat("dd/MM/yyyy").parse(DobTextField.getText()));
+             sv.setDob(new SimpleDateFormat("dd/MM/yyyy").parse(DobTextField.getText()));
         } catch(Exception e)
         {
             e.printStackTrace();
             JOptionPane.showMessageDialog(rootPane, "Sai định dạng ngày tháng");
         }
-        s.setMainClass(ClassTextField.getText());
-        s.setAddress(AddressTextField.getText());
-        s.setPhone(PhoneTextField.getText());
-        s.setEmail(EmailTextField.getText());
-        s.setStatus(StatusTextField.getText());
-        s.setMajor((String)MajorComboBox.getSelectedItem());
+        sv.setMainClass(ClassTextField.getText());
+        sv.setAddress(AddressTextField.getText());
+        sv.setPhone(PhoneTextField.getText());
+        sv.setEmail(EmailTextField.getText());
+        if(StudyingCheckBox.isSelected()) sv.setStatus("Studying");
+        else sv.setStatus("Graduated");
+        sv.setMajor((String)MajorComboBox.getSelectedItem());
         try {
-            s.setSchoolYear(Integer.parseInt(SchoolYearTextField.getText()));
+            sv.setSchoolYear(Integer.parseInt(SchoolYearTextField.getText()));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Định dạng số không chính xác !");
         }
-        if(sinhVienDAO.CapNhap(s))
+        if(sinhVienDAO.CapNhap(sv))
         {
             JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thành công !");
         }
         else
         {
             JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thất bại !");
+        }
+        
+    }
+    public void btnCapNhapDiemClick()
+    {
+        GD_CapNhapDiem winCapNhapDiem = new GD_CapNhapDiem(s);
+        winCapNhapDiem.setLocationRelativeTo(null);
+        winCapNhapDiem.setVisible(true);
+    }
+    public void btnXoaSinhVienClick()
+    {
+        int choice = JOptionPane.showConfirmDialog(rootPane, "Bạn chắc chắn muốn xóa sinh viên này không ?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if(choice == JOptionPane.YES_OPTION)
+        {
+            if(new SinhVienDAO().XoaSinhVien(IdTextField.getText()))
+            {
+                JOptionPane.showMessageDialog(rootPane, "Xóa sinh viên thành công");
+                IdTextField.setText("");
+                NameTextField.setText("");
+                MaleCheckBox.setSelected(false);
+                FemaleCheckBox.setSelected(false);
+                DobTextField.setText("");
+                ClassTextField.setText("");
+                AddressTextField.setText("");
+                PhoneTextField.setText("");
+                EmailTextField.setText("");
+                StudyingCheckBox.setSelected(false);
+                GraduatedCheckBox.setSelected(false);
+                SchoolYearTextField.setText("");
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Thông tin không tồn tại");
+            }
         }
         
     }

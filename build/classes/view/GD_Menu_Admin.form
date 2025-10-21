@@ -34,18 +34,13 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="RemoveSvButton" alignment="1" max="32767" attributes="0"/>
-                              <Component id="UpdateSvButton" alignment="1" max="32767" attributes="0"/>
-                              <Component id="AddSvButton" linkSize="6" alignment="0" pref="242" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="CapNhapDiemButton" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="UpdateSvButton" alignment="1" max="32767" attributes="0"/>
+                          <Component id="AddSvButton" linkSize="6" alignment="0" pref="242" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="149" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="AddAccButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="UpdateTkbButton" alignment="1" max="32767" attributes="0"/>
                           <Component id="ShowSvButton" linkSize="6" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -67,19 +62,12 @@
                   <Component id="AddSvButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="ShowSvButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="AddAccButton" pref="47" max="32767" attributes="0"/>
-                  <Component id="RemoveSvButton" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="UpdateSvButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="UpdateTkbButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="AddAccButton" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="CapNhapDiemButton" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -103,11 +91,6 @@
         <Property name="text" type="java.lang.String" value="Th&#xea;m sinh vi&#xea;n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="RemoveSvButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="X&#xf3;a sinh vi&#xea;n"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="UpdateSvButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;p SV"/>
@@ -129,22 +112,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddAccButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="UpdateTkbButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#xe2;p TKB"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateTkbButtonActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="BackButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="CapNhapDiemButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;p &#x111;i&#x1ec3;m "/>
       </Properties>
     </Component>
   </SubComponents>

@@ -11,11 +11,42 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.text.DefaultEditorKit;
 import model.CacMonHoc;
 import model.SinhVien;
 import util.DBConnection;
 
 public class SinhVienDAO {
+    public ArrayList<SinhVien> getListSinhVien2Major(String s)
+    {
+        ArrayList<SinhVien> list  = new ArrayList<>();
+        String sql = "SELECT * FROM SinhVien WHERE Major=?";
+        try (Connection conn = DBConnection.getConnection()){
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, s);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                SinhVien sv = new SinhVien();
+                sv.setId(rs.getString("Id"));
+                sv.setName(rs.getString("Name"));
+                sv.setSex(rs.getString("Sex"));
+                sv.setDob(rs.getDate("Day_of_birth"));
+                sv.setMainClass(rs.getString("MainClass"));
+                sv.setAddress(rs.getString("Address"));
+                sv.setPhone(rs.getString("Phone"));
+                sv.setEmail(rs.getString("Email"));
+                sv.setStatus(rs.getString("Status"));
+                sv.setMajor(rs.getString("Major"));
+                sv.setSchoolYear(rs.getInt("School_Year"));
+                list.add(sv);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+        
+    }
      public SinhVien getSinhVien(String s)
     {
         s = s.toUpperCase();
@@ -199,6 +230,7 @@ public class SinhVienDAO {
         String sql = "DELETE FROM SinhVien WHERE Id=?";
         String sql1 = "DELETE FROM TienTrinh WHERE Id=?";
         String sql2 = "DELETE FROM TaiKhoan WHERE Id=?";
+        String sql3 = "DELETE FROM LichHoc WHERE ID=?";
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, s);
@@ -206,7 +238,9 @@ public class SinhVienDAO {
             ps1.setString(1, s);
             PreparedStatement ps2= conn.prepareStatement(sql2);
             ps2.setString(1, s);
-            return ps.executeUpdate()>0 && ps1.executeUpdate()>0 && ps2.executeUpdate()>0;   
+            PreparedStatement ps3 = conn.prepareStatement(sql3);
+            ps3.setString(1, s);
+            return ps.executeUpdate()>0 && ps1.executeUpdate()>0 && ps2.executeUpdate()>0 && ps3.executeUpdate() > 0;   
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không có thông tin sinh viên hoặc bạn chưa điền đủ thông tin !");

@@ -2,8 +2,11 @@
 package view;
 
 import controller.TaiKhoanDAO;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
+import java.util.Properties;
 
 
 
@@ -15,7 +18,7 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
     
     public GD_DangNhap() {
         initComponents();
-        
+      
         taiKhoanDAO = new TaiKhoanDAO();
         
         LoginButton.addActionListener(this);
@@ -46,6 +49,7 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ SINH VIÊN");
 
+        jLabel1.setDisplayedMnemonic('Q');
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -58,8 +62,10 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
         jLabel3.setText("Pass:");
 
         LoginButton.setText("Login");
+        LoginButton.setOpaque(true);
 
         ResetButton.setText("Reset");
+        ResetButton.setOpaque(true);
 
         QuitButton.setText("Quit");
 
@@ -114,7 +120,7 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LoginButton)
                     .addComponent(ResetButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(QuitButton)
                 .addGap(14, 14, 14))
         );

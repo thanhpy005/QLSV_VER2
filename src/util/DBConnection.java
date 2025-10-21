@@ -14,7 +14,7 @@ public class DBConnection {
     // Test nhanh
     public static void main(String[] args) {
         try (Connection conn = getConnection()) {
-            System.out.println("Kết nối MySQL thành công!");
+            System.out.println("Kết nối SQLITE thành công!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

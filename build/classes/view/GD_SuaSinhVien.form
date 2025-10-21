@@ -47,40 +47,54 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="SchoolYearTextField" pref="235" max="32767" attributes="0"/>
-                                  <Component id="StatusTextField" max="32767" attributes="0"/>
-                                  <Component id="EmailTextField" max="32767" attributes="0"/>
-                                  <Component id="PhoneTextField" max="32767" attributes="0"/>
-                                  <Component id="AddressTextField" max="32767" attributes="0"/>
-                                  <Component id="ClassTextField" max="32767" attributes="0"/>
-                                  <Component id="DobTextField" max="32767" attributes="0"/>
-                                  <Component id="SexTextField" max="32767" attributes="0"/>
-                                  <Component id="NameTextField" max="32767" attributes="0"/>
-                                  <Component id="MajorComboBox" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="SchoolYearTextField" pref="235" max="32767" attributes="0"/>
+                                          <Component id="EmailTextField" max="32767" attributes="0"/>
+                                          <Component id="PhoneTextField" max="32767" attributes="0"/>
+                                          <Component id="AddressTextField" max="32767" attributes="0"/>
+                                          <Component id="ClassTextField" max="32767" attributes="0"/>
+                                          <Component id="DobTextField" max="32767" attributes="0"/>
+                                          <Component id="NameTextField" max="32767" attributes="0"/>
+                                          <Component id="MajorComboBox" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="MaleCheckBox" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="FemaleCheckBox" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="StudyingCheckBox" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="GraduatedCheckBox" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="UpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="XoaSinhVienButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="CapNhapDiemButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="141" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="UpdateButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,7 +127,8 @@
                   <Component id="TimKiemButton" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="SexTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MaleCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="FemaleCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -144,7 +159,8 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="StudyingCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="GraduatedCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -156,9 +172,13 @@
                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SchoolYearTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="UpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="XoaSinhVienButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CapNhapDiemButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="UpdateButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -244,10 +264,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;p"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="SchoolYearTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="StatusTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="EmailTextField">
     </Component>
@@ -258,8 +279,6 @@
     <Component class="javax.swing.JTextField" name="ClassTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="DobTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="SexTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="NameTextField">
     </Component>
@@ -278,6 +297,36 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="MaleCheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Male"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="FemaleCheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Female"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="StudyingCheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Studying"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="GraduatedCheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Graduated"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="XoaSinhVienButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="X&#xf3;a sinh vi&#xea;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="CapNhapDiemButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;p &#x111;i&#x1ec3;m"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

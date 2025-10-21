@@ -38,6 +38,30 @@ public class TienTrinhDAO {
         }
         return list;
     }
+     public ArrayList<TienTrinh> getTienTrinh2KiHoc(SinhVien s)
+     {
+         ArrayList<TienTrinh> list = new ArrayList<>();
+         String sql = "SELECT * FROM TienTrinh WHERE Id=? AND HocKi=?";
+         try (Connection conn = DBConnection.getConnection()){
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ps.setString(1, s.getId());
+             ps.setInt(2, s.getSchoolYear());
+             ResultSet rs = ps.executeQuery();
+             while(rs.next())
+             {
+                 TienTrinh tr =new TienTrinh();
+                 tr.setId(rs.getString("Id"));
+                 tr.setTenMon(rs.getString("TenMon"));
+                 tr.setKetQua(rs.getFloat("KetQua"));
+                 tr.setHocKi(rs.getInt("HocKi"));
+                 tr.setChuyenNganh(rs.getString("ChuyenNganh"));
+                 list.add(tr);
+             }
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return list;
+     }
      
      public float getCpa(SinhVien s)
      {

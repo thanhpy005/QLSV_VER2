@@ -59,14 +59,16 @@ public class GD_XemTienTrinh extends javax.swing.JFrame implements ActionListene
             "Tên môn","Kết quả","Trạng Thái"
         });
         LoadDataTable();
-        GpaTab1Label.setText(String.valueOf(TbKetQua(m1)));
-        GpaTab2Label.setText(String.valueOf(TbKetQua(m2)));
-        GpaTab3Label.setText(String.valueOf(TbKetQua(m3)));
-        GpaTab4Label.setText(String.valueOf(TbKetQua(m4)));
-        GpaTab5Label.setText(String.valueOf(TbKetQua(m5)));
-        GpaTab6Label.setText(String.valueOf(TbKetQua(m6)));
-        GpaTab7Label.setText(String.valueOf(TbKetQua(m7)));
-        GpaTab8Label.setText(String.valueOf(TbKetQua(m8)));
+        GpaTab1Label.setText(String.format("%.1f",TbKetQua(m1)));
+        GpaTab2Label.setText(String.format("%.1f",TbKetQua(m2)));
+        GpaTab3Label.setText(String.format("%.1f",TbKetQua(m3)));
+        GpaTab4Label.setText(String.format("%.1f",TbKetQua(m4)));
+        GpaTab5Label.setText(String.format("%.1f",TbKetQua(m5)));
+        GpaTab6Label.setText(String.format("%.1f",TbKetQua(m6)));
+        GpaTab7Label.setText(String.format("%.1f",TbKetQua(m7)));
+        GpaTab8Label.setText(String.format("%.1f",TbKetQua(m8)));
+      
+        
         
     }
     public float TbKetQua(DefaultTableModel m)
