@@ -240,7 +240,8 @@ public class SinhVienDAO {
             ps2.setString(1, s);
             PreparedStatement ps3 = conn.prepareStatement(sql3);
             ps3.setString(1, s);
-            return ps.executeUpdate()>0 && ps1.executeUpdate()>0 && ps2.executeUpdate()>0 && ps3.executeUpdate() > 0;   
+            ps3.executeUpdate();
+            return ps.executeUpdate()>0 && ps1.executeUpdate()>0 && ps2.executeUpdate()>0;   
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không có thông tin sinh viên hoặc bạn chưa điền đủ thông tin !");

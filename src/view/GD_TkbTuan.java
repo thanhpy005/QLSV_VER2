@@ -37,6 +37,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST2_2T.setText(i.getMamon());
                     Name_ST2_2T.setText(i.getTenmon());
+                    Name_ST2_2T.setToolTipText(i.getTenmon());
                     PHONG_ST2_2T.setText(i.getPhonghoc());
                     Thu2HaiTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -44,6 +45,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST2_3T.setText(i.getMamon());
                     NAME_ST2_3T.setText(i.getTenmon());
+                    NAME_ST2_3T.setToolTipText(i.getTenmon());
                     PHONG_ST2_3T.setText(i.getPhonghoc());
                     Thu2BaTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -51,6 +53,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT2_2T.setText(i.getMamon());
                     NAME_CT2_2T.setText(i.getTenmon());
+                    NAME_CT2_2T.setToolTipText(i.getTenmon());
                     PHONG_CT2_2T.setText(i.getPhonghoc());
                     Thu2HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -58,6 +61,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT2_3T.setText(i.getMamon());
                     NAME_CT2_3T.setText(i.getTenmon());
+                    NAME_CT2_3T.setToolTipText(i.getTenmon());
                     PHONG_CT2_3T.setText(i.getPhonghoc());
                     Thu2BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -71,6 +75,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST3_2T.setText(i.getMamon());
                     NAME_ST3_2T.setText(i.getTenmon());
+                    NAME_ST3_2T.setToolTipText(i.getTenmon());
                     PHONG_ST3_2T.setText(i.getPhonghoc());
                     Thu3HaiTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -78,6 +83,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST3_3T.setText(i.getMamon());
                     NAME_ST3_3T.setText(i.getTenmon());
+                    NAME_ST3_3T.setToolTipText(i.getTenmon());
                     PHONG_ST3_3T.setText(i.getPhonghoc());
                     Thu3BaTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -85,6 +91,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT3_2T.setText(i.getMamon());
                     NAME_CT3_2T.setText(i.getTenmon());
+                    NAME_CT3_2T.setToolTipText(i.getTenmon());
                     PHONG_CT3_2T.setText(i.getPhonghoc());
                     Thu3HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -92,6 +99,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT3_3T.setText(i.getMamon());
                     NAME_CT3_3T.setText(i.getTenmon());
+                    NAME_CT3_3T.setToolTipText(i.getTenmon());
                     PHONG_CT3_3T.setText(i.getPhonghoc());
                     Thu3BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -105,6 +113,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST4_2T.setText(i.getMamon());
                     NAME_ST4_2T.setText(i.getTenmon());
+                    NAME_ST4_2T.setToolTipText(i.getTenmon());
                     PHONG_ST4_2T.setText(i.getPhonghoc());
                     Thu4HaiTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -112,6 +121,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST4_3T.setText(i.getMamon());
                     NAME_ST4_3T.setText(i.getTenmon());
+                    NAME_ST4_3T.setToolTipText(i.getTenmon());
                     PHONG_ST4_3T.setText(i.getPhonghoc());
                     Thu4BaTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -119,6 +129,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT4_2T.setText(i.getMamon());
                     NAME_CT4_2T.setText(i.getTenmon());
+                    NAME_CT4_2T.setToolTipText(i.getTenmon());
                     PHONG_CT4_2T.setText(i.getPhonghoc());
                     Thu4HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -126,6 +137,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT4_3T.setText(i.getMamon());
                     NAME_CT4_3T.setText(i.getTenmon());
+                    NAME_CT4_3T.setToolTipText(i.getTenmon());
                     PHONG_CT4_3T.setText(i.getPhonghoc());
                     Thu4BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -139,6 +151,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST5_2T.setText(i.getMamon());
                     NAME_ST5_2T.setText(i.getTenmon());
+                    NAME_ST5_2T.setToolTipText(i.getTenmon());
                     PHONG_ST5_2T.setText(i.getPhonghoc());
                     Thu5HaiTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -146,6 +159,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST5_3T.setText(i.getMamon());
                     NAME_ST5_3T.setText(i.getTenmon());
+                    NAME_ST5_3T.setToolTipText(i.getTenmon());
                     PHONG_ST5_3T.setText(i.getPhonghoc());
                     Thu5BaTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -153,6 +167,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT5_2T.setText(i.getMamon());
                     NAME_CT5_2T.setText(i.getTenmon());
+                    NAME_CT5_2T.setToolTipText(i.getTenmon());
                     PHONG_CT5_2T.setText(i.getPhonghoc());
                     Thu5HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -160,6 +175,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT5_3T.setText(i.getMamon());
                     NAME_CT5_3T.setText(i.getTenmon());
+                    NAME_CT5_3T.setToolTipText(i.getTenmon());
                     PHONG_CT5_3T.setText(i.getPhonghoc());
                     Thu5BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -173,6 +189,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST6_2T.setText(i.getMamon());
                     NAME_ST6_2T.setText(i.getTenmon());
+                    NAME_ST6_2T.setToolTipText(i.getTenmon());
                     PHONG_ST6_2T.setText(i.getPhonghoc());
                     Thu6HaiTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -180,6 +197,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST6_3T.setText(i.getMamon());
                     NAME_ST6_3T.setText(i.getTenmon());
+                    NAME_ST6_3T.setToolTipText(i.getTenmon());
                     PHONG_ST6_3T.setText(i.getPhonghoc());
                     Thu6BaTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -187,6 +205,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT6_2T.setText(i.getMamon());
                     NAME_CT6_2T.setText(i.getTenmon());
+                    NAME_CT6_2T.setToolTipText(i.getTenmon());
                     PHONG_CT6_2T.setText(i.getPhonghoc());
                     Thu6HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -194,6 +213,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT6_3T.setText(i.getMamon());
                     NAME_CT6_3T.setText(i.getTenmon());
+                    NAME_CT6_3T.setToolTipText(i.getTenmon());
                     PHONG_CT6_3T.setText(i.getPhonghoc());
                     Thu6BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -207,6 +227,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST7_2T.setText(i.getMamon());
                     NAME_ST7_2T.setText(i.getTenmon());
+                    NAME_ST7_2T.setToolTipText(i.getTenmon());
                     PHONG_ST7_2T.setText(i.getPhonghoc());
                     Thu7HaiTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -214,6 +235,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_ST7_3T.setText(i.getMamon());
                     NAME_ST7_3T.setText(i.getTenmon());
+                    NAME_ST7_3T.setToolTipText(i.getTenmon());
                     PHONG_ST7_3T.setText(i.getPhonghoc());
                     Thu7BaTiet.setBackground(new Color(173, 216, 230));
                 }
@@ -221,6 +243,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT7_2T.setText(i.getMamon());
                     NAME_CT7_2T.setText(i.getTenmon());
+                    NAME_CT7_2T.setToolTipText(i.getTenmon());
                     PHONG_CT7_2T.setText(i.getPhonghoc());
                     Thu7HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -228,6 +251,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 {
                     ID_CT7_3T.setText(i.getMamon());
                     NAME_CT7_3T.setText(i.getTenmon());
+                    NAME_CT7_3T.setToolTipText(i.getTenmon());
                     PHONG_CT7_3T.setText(i.getPhonghoc());
                     Thu7BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
@@ -728,9 +752,9 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
             .addGroup(Thu2HaiTietLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Thu2HaiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ID_ST2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(Name_ST2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PHONG_ST2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ID_ST2_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name_ST2_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PHONG_ST2_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         Thu2HaiTietLayout.setVerticalGroup(
@@ -742,7 +766,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(Name_ST2_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST2_2T)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         Thu3HaiTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -762,7 +786,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu3HaiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST3_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST3_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST3_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST3_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -773,9 +797,9 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(ID_ST3_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NAME_ST3_2T)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST3_2T)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         Thu4HaiTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -795,7 +819,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu4HaiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST4_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST4_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST4_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST4_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -808,7 +832,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST4_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST4_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         Thu5HaiTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -828,7 +852,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu5HaiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST5_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST5_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST5_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST5_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -841,7 +865,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST5_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST5_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu6HaiTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -861,7 +885,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu6HaiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST6_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST6_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST6_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST6_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -874,7 +898,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST6_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST6_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu7HaiTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -894,7 +918,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu7HaiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST7_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST7_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST7_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST7_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -907,7 +931,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST7_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST7_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         jPanel8.setBackground(java.awt.Color.white);
@@ -940,8 +964,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
             .addGroup(Thu2BaTietLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Thu2BaTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ID_ST2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(NAME_ST2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ID_ST2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST2_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -974,7 +998,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu3BaTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST3_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST3_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST3_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST3_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -987,7 +1011,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST3_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST3_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu4BaTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -1007,7 +1031,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu4BaTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST4_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST4_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST4_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST4_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1020,7 +1044,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST4_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST4_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu5BaTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -1040,7 +1064,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu5BaTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST5_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST5_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST5_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST5_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1053,7 +1077,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST5_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST5_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         Thu6BaTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -1073,7 +1097,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu6BaTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST6_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST6_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST6_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST6_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1086,7 +1110,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST6_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST6_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         Thu7BaTiet.setBackground(new java.awt.Color(255, 255, 255));
@@ -1106,7 +1130,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu7BaTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_ST7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_ST7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_ST7_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_ST7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1119,7 +1143,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_ST7_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_ST7_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
@@ -1250,8 +1274,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
             .addGroup(Thu2HaiTietChieuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Thu2HaiTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ID_CT2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(NAME_CT2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ID_CT2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT2_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT2_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1264,7 +1288,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT2_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT2_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu3HaiTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1284,7 +1308,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu3HaiTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT3_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT3_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT3_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT3_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1297,7 +1321,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT3_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT3_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu4HaiTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1317,7 +1341,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu4HaiTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT4_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT4_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT4_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT4_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1330,7 +1354,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT4_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT4_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu5HaiTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1350,7 +1374,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu5HaiTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT5_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT5_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT5_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT5_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1363,7 +1387,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT5_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT5_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu6HaiTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1383,7 +1407,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu6HaiTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT6_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT6_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT6_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT6_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1396,7 +1420,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT6_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT6_2T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu7HaiTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1416,7 +1440,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu7HaiTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT7_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT7_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT7_2T, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT7_2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1427,7 +1451,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(ID_CT7_2T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NAME_CT7_2T)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(PHONG_CT7_2T)
                 .addContainerGap())
         );
@@ -1462,8 +1486,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
             .addGroup(Thu2BaTietChieuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Thu2BaTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ID_CT2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(NAME_CT2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ID_CT2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT2_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT2_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1476,7 +1500,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT2_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT2_3T)
-                .addGap(91, 91, 91))
+                .addGap(0, 0, 0))
         );
 
         Thu3BaTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1496,7 +1520,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu3BaTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT3_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT3_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT3_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT3_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1509,7 +1533,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT3_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT3_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu4BaTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1529,7 +1553,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu4BaTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT4_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT4_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT4_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT4_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1542,7 +1566,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT4_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT4_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu5BaTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1562,7 +1586,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu5BaTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT5_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT5_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT5_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT5_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1575,7 +1599,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT5_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT5_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu6BaTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1595,7 +1619,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(Thu6BaTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ID_CT6_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NAME_CT6_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT6_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT6_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1608,7 +1632,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT6_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT6_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         Thu7BaTietChieu.setBackground(new java.awt.Color(255, 255, 255));
@@ -1627,8 +1651,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
             .addGroup(Thu7BaTietChieuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Thu7BaTietChieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ID_CT7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(NAME_CT7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ID_CT7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NAME_CT7_3T, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PHONG_CT7_3T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1641,7 +1665,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addComponent(NAME_CT7_3T)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PHONG_CT7_3T)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         jPanel36.setBackground(new java.awt.Color(255, 255, 255));
@@ -1813,9 +1837,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)))
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1832,8 +1854,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Thu3HaiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu3BaTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu3HaiTietChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1841,8 +1863,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Thu4HaiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu4BaTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu4HaiTietChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1850,8 +1872,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Thu5HaiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu5BaTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu5HaiTietChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1859,8 +1881,8 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Thu6HaiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu6BaTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu6HaiTietChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1868,7 +1890,7 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Thu7HaiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu7BaTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thu7HaiTietChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2008,9 +2030,10 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
                                 .addGap(0, 0, 0)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(Thu2BaTietChieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Thu7BaTietChieu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Thu7BaTietChieu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Thu2BaTietChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jPanel37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

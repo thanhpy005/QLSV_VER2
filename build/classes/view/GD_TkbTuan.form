@@ -42,10 +42,7 @@
                   <Component id="jLabel40" max="32767" attributes="0"/>
                   <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel43" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel43" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -68,8 +65,8 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Thu3HaiTiet" max="32767" attributes="0"/>
-                  <Component id="jLabel15" alignment="0" pref="139" max="32767" attributes="0"/>
-                  <Component id="jLabel34" alignment="0" pref="139" max="32767" attributes="0"/>
+                  <Component id="jLabel15" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel34" alignment="0" max="32767" attributes="0"/>
                   <Component id="Thu3BaTiet" max="32767" attributes="0"/>
                   <Component id="jPanel3" max="32767" attributes="0"/>
                   <Component id="Thu3HaiTietChieu" max="32767" attributes="0"/>
@@ -78,8 +75,8 @@
               </Group>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Thu4HaiTiet" max="32767" attributes="0"/>
-                  <Component id="jLabel16" alignment="0" pref="139" max="32767" attributes="0"/>
-                  <Component id="jLabel35" alignment="0" pref="139" max="32767" attributes="0"/>
+                  <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel35" alignment="0" max="32767" attributes="0"/>
                   <Component id="Thu4BaTiet" max="32767" attributes="0"/>
                   <Component id="jPanel18" max="32767" attributes="0"/>
                   <Component id="Thu4HaiTietChieu" max="32767" attributes="0"/>
@@ -88,8 +85,8 @@
               </Group>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Thu5HaiTiet" max="32767" attributes="0"/>
-                  <Component id="jLabel17" alignment="0" pref="139" max="32767" attributes="0"/>
-                  <Component id="jLabel36" alignment="0" pref="139" max="32767" attributes="0"/>
+                  <Component id="jLabel17" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel36" alignment="0" max="32767" attributes="0"/>
                   <Component id="Thu5BaTiet" max="32767" attributes="0"/>
                   <Component id="jPanel19" max="32767" attributes="0"/>
                   <Component id="Thu5HaiTietChieu" max="32767" attributes="0"/>
@@ -98,8 +95,8 @@
               </Group>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Thu6HaiTiet" max="32767" attributes="0"/>
-                  <Component id="jLabel18" alignment="0" pref="139" max="32767" attributes="0"/>
-                  <Component id="jLabel37" alignment="0" pref="139" max="32767" attributes="0"/>
+                  <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel37" alignment="0" max="32767" attributes="0"/>
                   <Component id="Thu6BaTiet" max="32767" attributes="0"/>
                   <Component id="jPanel20" max="32767" attributes="0"/>
                   <Component id="Thu6HaiTietChieu" max="32767" attributes="0"/>
@@ -108,7 +105,7 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="Thu7HaiTiet" max="32767" attributes="0"/>
-                  <Component id="jLabel38" alignment="0" pref="161" max="32767" attributes="0"/>
+                  <Component id="jLabel38" alignment="0" max="32767" attributes="0"/>
                   <Component id="Thu7BaTiet" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanel21" alignment="0" max="32767" attributes="0"/>
                   <Component id="Thu7HaiTietChieu" alignment="0" max="32767" attributes="0"/>
@@ -277,9 +274,10 @@
                                   <Component id="jLabel12" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                   <Component id="jLabel31" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="Thu2BaTietChieu" min="-2" max="-2" attributes="0"/>
                           <Component id="Thu7BaTietChieu" alignment="1" max="32767" attributes="0"/>
+                          <Component id="Thu2BaTietChieu" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1149,9 +1147,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ID_ST2_2T" pref="127" max="32767" attributes="0"/>
-                      <Component id="Name_ST2_2T" max="32767" attributes="0"/>
-                      <Component id="PHONG_ST2_2T" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ID_ST2_2T" min="-2" pref="127" max="-2" attributes="0"/>
+                      <Component id="Name_ST2_2T" min="-2" pref="127" max="-2" attributes="0"/>
+                      <Component id="PHONG_ST2_2T" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1160,13 +1158,13 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="ID_ST2_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="Name_ST2_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="PHONG_ST2_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1214,7 +1212,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST3_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST3_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST3_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST3_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1228,9 +1226,9 @@
                   <Component id="ID_ST3_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="NAME_ST3_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="PHONG_ST3_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="PHONG_ST3_2T" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1278,7 +1276,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST4_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST4_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST4_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST4_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1294,7 +1292,7 @@
                   <Component id="NAME_ST4_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST4_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1342,7 +1340,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST5_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST5_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST5_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST5_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1358,7 +1356,7 @@
                   <Component id="NAME_ST5_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST5_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1406,7 +1404,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST6_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST6_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST6_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST6_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1422,7 +1420,7 @@
                   <Component id="NAME_ST6_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST6_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1470,7 +1468,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST7_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST7_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST7_2T" min="-2" pref="147" max="-2" attributes="0"/>
                       <Component id="PHONG_ST7_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1486,7 +1484,7 @@
                   <Component id="NAME_ST7_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST7_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1556,13 +1554,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ID_ST2_3T" pref="127" max="32767" attributes="0"/>
-                      <Component id="NAME_ST2_3T" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ID_ST2_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST2_3T" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                       <Component id="PHONG_ST2_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1623,7 +1621,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST3_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST3_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST3_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST3_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1639,7 +1637,7 @@
                   <Component id="NAME_ST3_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST3_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1687,7 +1685,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST4_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST4_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST4_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST4_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1703,7 +1701,7 @@
                   <Component id="NAME_ST4_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST4_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1751,7 +1749,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST5_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST5_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST5_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST5_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1767,7 +1765,7 @@
                   <Component id="NAME_ST5_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST5_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1815,7 +1813,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST6_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST6_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST6_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_ST6_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1831,7 +1829,7 @@
                   <Component id="NAME_ST6_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST6_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1879,7 +1877,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_ST7_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_ST7_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_ST7_3T" min="-2" pref="147" max="-2" attributes="0"/>
                       <Component id="PHONG_ST7_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1895,7 +1893,7 @@
                   <Component id="NAME_ST7_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_ST7_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2142,8 +2140,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ID_CT2_2T" pref="127" max="32767" attributes="0"/>
-                      <Component id="NAME_CT2_2T" max="32767" attributes="0"/>
+                      <Component id="ID_CT2_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT2_2T" min="-2" pref="127" max="-2" attributes="0"/>
                       <Component id="PHONG_CT2_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2159,7 +2157,7 @@
                   <Component id="NAME_CT2_2T" min="-2" pref="16" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT2_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2207,7 +2205,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT3_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT3_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT3_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT3_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2223,7 +2221,7 @@
                   <Component id="NAME_CT3_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT3_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2271,7 +2269,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT4_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT4_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT4_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT4_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2287,7 +2285,7 @@
                   <Component id="NAME_CT4_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT4_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2335,7 +2333,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT5_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT5_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT5_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT5_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2351,7 +2349,7 @@
                   <Component id="NAME_CT5_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT5_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2399,7 +2397,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT6_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT6_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT6_2T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT6_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2415,7 +2413,7 @@
                   <Component id="NAME_CT6_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT6_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2463,7 +2461,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT7_2T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT7_2T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT7_2T" min="-2" pref="147" max="-2" attributes="0"/>
                       <Component id="PHONG_CT7_2T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2477,7 +2475,7 @@
                   <Component id="ID_CT7_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="NAME_CT7_2T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="PHONG_CT7_2T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -2551,8 +2549,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ID_CT2_3T" pref="127" max="32767" attributes="0"/>
-                      <Component id="NAME_CT2_3T" max="32767" attributes="0"/>
+                      <Component id="ID_CT2_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT2_3T" min="-2" pref="127" max="-2" attributes="0"/>
                       <Component id="PHONG_CT2_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2568,7 +2566,7 @@
                   <Component id="NAME_CT2_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT2_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2616,7 +2614,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT3_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT3_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT3_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT3_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2632,7 +2630,7 @@
                   <Component id="NAME_CT3_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT3_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2680,7 +2678,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT4_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT4_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT4_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT4_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2696,7 +2694,7 @@
                   <Component id="NAME_CT4_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT4_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2744,7 +2742,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT5_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT5_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT5_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT5_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2760,7 +2758,7 @@
                   <Component id="NAME_CT5_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT5_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2808,7 +2806,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ID_CT6_3T" max="32767" attributes="0"/>
-                      <Component id="NAME_CT6_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT6_3T" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="PHONG_CT6_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2824,7 +2822,7 @@
                   <Component id="NAME_CT6_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT6_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2871,8 +2869,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ID_CT7_3T" pref="147" max="32767" attributes="0"/>
-                      <Component id="NAME_CT7_3T" max="32767" attributes="0"/>
+                      <Component id="ID_CT7_3T" max="32767" attributes="0"/>
+                      <Component id="NAME_CT7_3T" min="-2" pref="147" max="-2" attributes="0"/>
                       <Component id="PHONG_CT7_3T" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2888,7 +2886,7 @@
                   <Component id="NAME_CT7_3T" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PHONG_CT7_3T" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
