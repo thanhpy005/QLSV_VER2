@@ -72,6 +72,7 @@ public class GD_DangKiMon extends javax.swing.JFrame implements ActionListener{
             "Mã môn","Tên môn","Phòng Học","Tiết bắt đầu","Số tiết","Thứ","Thời gian","Thao tác"
         });
         
+        
     }
     public String getMaMon(String s)
     {

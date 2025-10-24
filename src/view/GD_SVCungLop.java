@@ -33,21 +33,33 @@ public class GD_SVCungLop extends javax.swing.JFrame implements ActionListener{
         list = new SinhVienDAO().getlistSinhVien();
         int cnt = 0;
         model.setColumnIdentifiers(new Object[]{
-            "STT","MSV","Tên","Giới tính","Ngày sinh","Lớp","Địa chỉ","Số điện thoại","Email","Trạng thái","Chuyên ngành","Kì học","Hanh dong"
+            "STT","MSV","Tên","Giới tính","Ngày sinh","Lớp","Địa chỉ","Số điện thoại","Email","Trạng thái","Chuyên ngành","Kì học",
         });
         for(SinhVien i : list)
         {
             if(i.getMainClass().equals(sinhVien.getMainClass()))
             {
                 model.addRow(new Object[]{
-                    ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear(),"Chi tiết"
+                    ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear()
                 });
             }
         }
         
         SvTable.setDefaultEditor(Object.class, null);
-        int columnIndex = 12;
+        SvTable.getColumnModel().getColumn(0).setPreferredWidth(35);
+        SvTable.getColumnModel().getColumn(1).setPreferredWidth(80);
+        SvTable.getColumnModel().getColumn(2).setPreferredWidth(115);
+        SvTable.getColumnModel().getColumn(3).setPreferredWidth(55);
+        SvTable.getColumnModel().getColumn(4).setPreferredWidth(75);
+        SvTable.getColumnModel().getColumn(5).setPreferredWidth(70);
+        SvTable.getColumnModel().getColumn(6).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(7).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(8).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(9).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(10).setPreferredWidth(40);
+        SvTable.getColumnModel().getColumn(11).setPreferredWidth(40);
         
+       
     
     }
 

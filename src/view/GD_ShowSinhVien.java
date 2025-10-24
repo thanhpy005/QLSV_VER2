@@ -36,6 +36,19 @@ public class GD_ShowSinhVien extends javax.swing.JFrame implements ActionListene
         });
       
         TableSinhVien.setDefaultEditor(Object.class, null);
+        TableSinhVien.getColumnModel().getColumn(0).setPreferredWidth(35);
+        TableSinhVien.getColumnModel().getColumn(1).setPreferredWidth(80);
+        TableSinhVien.getColumnModel().getColumn(2).setPreferredWidth(115);
+        TableSinhVien.getColumnModel().getColumn(3).setPreferredWidth(55);
+        TableSinhVien.getColumnModel().getColumn(4).setPreferredWidth(75);
+        TableSinhVien.getColumnModel().getColumn(5).setPreferredWidth(70);
+        TableSinhVien.getColumnModel().getColumn(6).setPreferredWidth(60);
+        TableSinhVien.getColumnModel().getColumn(7).setPreferredWidth(60);
+        TableSinhVien.getColumnModel().getColumn(8).setPreferredWidth(60);
+        TableSinhVien.getColumnModel().getColumn(9).setPreferredWidth(60);
+        TableSinhVien.getColumnModel().getColumn(10).setPreferredWidth(40);
+        TableSinhVien.getColumnModel().getColumn(11).setPreferredWidth(40);
+        TableSinhVien.getColumnModel().getColumn(12).setPreferredWidth(70);
         ShowData();
         int buttonColumnIndex = 12;
         TableSinhVien.getColumnModel().getColumn(buttonColumnIndex).setCellRenderer(new ButtonRenderer());
