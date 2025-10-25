@@ -211,7 +211,7 @@ class ButtonEditor extends AbstractCellEditor implements TableCellEditor,ActionL
     {
         Object student = table.getValueAt(currentRow, 1);
         SinhVien s = new SinhVienDAO().getSinhVien(student.toString());
-        GD_Menu_SV winD_Menu_SV = new GD_Menu_SV(s);
+        GD_Menu_SV1 winD_Menu_SV = new GD_Menu_SV1(s);
         winD_Menu_SV.setLocationRelativeTo(null);
         winD_Menu_SV.setVisible(true);
        

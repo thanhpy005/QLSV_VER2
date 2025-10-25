@@ -203,13 +203,6 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
         winThemSinhVien.setVisible(true);
         this.dispose();
     }
-    public void btnXoaSinhVien()
-    {
-        GD_XoaSinhVien winD_XoaSinhVien = new GD_XoaSinhVien();
-        winD_XoaSinhVien.setLocationRelativeTo(null);
-        winD_XoaSinhVien.setVisible(true);
-        this.dispose();
-    }
     public void btnCapNhapSinhVien()
     {
         GD_SuaSinhVien winD_SuaSinhVien = new GD_SuaSinhVien();

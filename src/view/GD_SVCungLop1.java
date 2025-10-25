@@ -1,44 +1,66 @@
 
 package view;
 
-import controller.TkbDAO;
+import controller.SinhVienDAO;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.AbstractCellEditor;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import model.LichHoc;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import model.SinhVien;
 
 
-public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
-    public ArrayList<LichHoc> list;
-    public DefaultTableModel model;
-    public SinhVien sinhVien;
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GD_XemTkb.class.getName());
 
-    
-    
-    public GD_XemTkb(SinhVien s) {
+public class GD_SVCungLop1 extends javax.swing.JFrame implements ActionListener{
+    SinhVien sinhVien;
+    ArrayList<SinhVien> list;
+    DefaultTableModel model;
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GD_SVCungLop1.class.getName());
+
+    /**
+     * Creates new form GD_SVCungLop
+     */
+    public GD_SVCungLop1(SinhVien sinhVien) {
         initComponents();
+        this.sinhVien = sinhVien;
         BackButton.addActionListener(this);
-        this.setLocationRelativeTo(null);
-        model = (DefaultTableModel) TableTkb.getModel();
-        list = new TkbDAO().XemTKbSV(s.getId(),s.getSchoolYear());
-        sinhVien = s;
-        model.setColumnIdentifiers(new Object[]{
-            "STT","Mã môn","Tên môn","Thứ","Tiết bắt đầu","Số tiết","Phòng học","Thời gian","Kì học"
-        });
-        showTable();
-    }
-    public void showTable()
-    {
+        model = (DefaultTableModel) SvTable.getModel();
+        list = new SinhVienDAO().getlistSinhVien();
         int cnt = 0;
-        for(LichHoc i : list)
+        model.setColumnIdentifiers(new Object[]{
+            "STT","MSV","Tên","Giới tính","Ngày sinh","Lớp","Địa chỉ","Số điện thoại","Email","Trạng thái","Chuyên ngành","Kì học",
+        });
+        for(SinhVien i : list)
         {
-            model.addRow(new Object[]{
-                ++cnt,i.getMamon(),i.getTenmon(),i.getDayString(),i.getTietBatDau(),i.getSoTiet(),i.getPhonghoc(),i.getThoiGian(),i.getKiHoc()
-            });
+            if(i.getMainClass().equals(sinhVien.getMainClass()))
+            {
+                model.addRow(new Object[]{
+                    ++cnt,i.getId(),i.getName(),i.getSex(),i.getDob(),i.getMainClass(),i.getAddress(),i.getPhone(),i.getEmail(),i.getStatus(),i.getMajor(),i.getSchoolYear()
+                });
+            }
         }
+        
+        SvTable.setDefaultEditor(Object.class, null);
+        SvTable.getColumnModel().getColumn(0).setPreferredWidth(35);
+        SvTable.getColumnModel().getColumn(1).setPreferredWidth(80);
+        SvTable.getColumnModel().getColumn(2).setPreferredWidth(115);
+        SvTable.getColumnModel().getColumn(3).setPreferredWidth(55);
+        SvTable.getColumnModel().getColumn(4).setPreferredWidth(75);
+        SvTable.getColumnModel().getColumn(5).setPreferredWidth(70);
+        SvTable.getColumnModel().getColumn(6).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(7).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(8).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(9).setPreferredWidth(60);
+        SvTable.getColumnModel().getColumn(10).setPreferredWidth(40);
+        SvTable.getColumnModel().getColumn(11).setPreferredWidth(40);
+        
+       
+    
     }
 
     /**
@@ -50,18 +72,13 @@ public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TableTkb = new javax.swing.JTable();
+        SvTable = new javax.swing.JTable();
         BackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("THỜI KHÓA BIỂU");
-
-        TableTkb.setModel(new javax.swing.table.DefaultTableModel(
+        SvTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -69,33 +86,27 @@ public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
 
             }
         ));
-        jScrollPane1.setViewportView(TableTkb);
+        jScrollPane1.setViewportView(SvTable);
 
-        BackButton.setText("Quay Lại");
+        BackButton.setText("Quay lại");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(914, Short.MAX_VALUE)
                 .addComponent(BackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(193, 193, 193))
+                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BackButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(BackButton)
+                .addContainerGap())
         );
 
         pack();
@@ -128,8 +139,7 @@ public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
-    private javax.swing.JTable TableTkb;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable SvTable;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     @Override
@@ -137,7 +147,7 @@ public class GD_XemTkb extends javax.swing.JFrame implements ActionListener{
     {
         if(e.getSource().equals(BackButton))
         {
-            GD_Menu_SV winD_Menu_SV = new GD_Menu_SV(sinhVien);
+            GD_Menu_SV1 winD_Menu_SV = new GD_Menu_SV1(sinhVien);
             winD_Menu_SV.setLocationRelativeTo(null);
             winD_Menu_SV.setVisible(true);
             this.dispose();
