@@ -293,18 +293,22 @@ class ButtonEditor2 extends AbstractCellEditor implements TableCellEditor, Actio
         l.setDayString(table.getValueAt(currentRow, 5).toString());
         l.setThoiGian(table.getValueAt(currentRow, 6).toString());
         l.setKiHoc(sinhVien.getSchoolYear());
-        if(new TkbDAO().CapNhapTkb(l))
+        if(new TkbDAO().getSoLuongHs(l.getMamon(), l.getDayString(), l.getTietBatDau()) < 5 )
         {
-            JOptionPane.showMessageDialog(null, "Cập nhập thời khóa biểu thành công !");
+            if(new TkbDAO().CapNhapTkb(l))
+            {
+                JOptionPane.showMessageDialog(null, "Cập nhập thời khóa biểu thành công !");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Trùng lịch học với môn khác hoặc môn học đã được đăng kí");
+            }
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Trùng lịch học với môn khác hoặc môn học đã được đăng kí");
-        }
+        else JOptionPane.showMessageDialog(null, "Lớp học đã đủ số lượng, vui lòng chọn lớp học khác");
     }
 
     @Override
     protected void fireEditingStopped() {
-        super.fireEditingStopped(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        super.fireEditingStopped(); 
     }
     
 }

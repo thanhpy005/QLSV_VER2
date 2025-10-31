@@ -45,6 +45,7 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
         ShowSvButton.addActionListener(this);
         AddAccButton.addActionListener(this);
         BackButton.addActionListener(this);
+        DoiMKButton.addActionListener(this);
         
     }
 
@@ -63,6 +64,7 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
         ShowSvButton = new javax.swing.JButton();
         AddAccButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
+        DoiMKButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ SINH VIÊN [Admin]");
@@ -94,6 +96,8 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
 
         BackButton.setText("Đăng xuất");
 
+        DoiMKButton.setText("Đổi mật khẩu");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,11 +112,13 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(UpdateSvButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AddSvButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(AddAccButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ShowSvButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(80, 80, 80))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DoiMKButton)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {AddSvButton, ShowSvButton});
@@ -122,17 +128,22 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackButton))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddSvButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ShowSvButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpdateSvButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(86, 86, 86))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DoiMKButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BackButton))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AddSvButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ShowSvButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UpdateSvButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(86, 86, 86))))
         );
 
         pack();
@@ -175,6 +186,7 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JButton AddAccButton;
     private javax.swing.JButton AddSvButton;
     private javax.swing.JButton BackButton;
+    private javax.swing.JButton DoiMKButton;
     private javax.swing.JButton ShowSvButton;
     private javax.swing.JButton UpdateSvButton;
     private javax.swing.JLabel jLabel1;
@@ -187,6 +199,7 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
         else if(e.getSource().equals(UpdateSvButton)) btnCapNhapSinhVien();
         else if(e.getSource().equals(ShowSvButton)) btnTatCaSinhVien();
         else if(e.getSource().equals(AddAccButton)) btnThemTaiKhoan();
+        else if(e.getSource().equals(DoiMKButton)) btnDoiMkClick();
         else if(e.getSource().equals(BackButton))
         {
             GD_DangNhap winD_DangNhap = new GD_DangNhap();
@@ -229,7 +242,11 @@ public class GD_Menu_Admin extends javax.swing.JFrame implements ActionListener{
         winD_UpdateTkb.setVisible(true);
         this.dispose();
     }
-    
-    
+    public void btnDoiMkClick()
+    {
+        GD_DoiMk1 winD_DoiMk1 = new GD_DoiMk1();
+        winD_DoiMk1.setLocationRelativeTo(null);
+        winD_DoiMk1.setVisible(true);
+    }
    
 }

@@ -108,13 +108,27 @@ public class TaiKhoanDAO {
         return tk;
     }
      
-     public boolean DoiMatKhau(TaiKhoan t,String NewPass)
+     public boolean DoiMatKhau(SinhVien t,String NewPass)
     {
         String sql = "UPDATE TaiKhoan SET Pass_Word=? WHERE Id=?";
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, NewPass);
-            ps.setString(2, t.getIdString());
+            ps.setString(2, t.getId());
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Lỗi truy cập csdl !");
+        }
+        return false;
+    }
+     public boolean DoiMatKhau1(String t,String NewPass)
+    {
+        String sql = "UPDATE NhanVien SET Pass_Word=? WHERE Id=?";
+        try (Connection conn = DBConnection.getConnection()){
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, NewPass);
+            ps.setString(2, t);
             return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,19 +159,25 @@ public class TaiKhoanDAO {
         }
         return tk;
     }
-     
-     public boolean DoiMatKhau(SinhVien s,String NewPass)
+     public TaiKhoan getTaiKhoan1(String taikhoan)
     {
-        String sql = "UPDATE TaiKhoan SET Pass_Word=? WHERE Id=?";
+        String sql = "SELECT * FROM NhanVien WHERE Id=?";
+        TaiKhoan tk = new TaiKhoan();
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, NewPass);
-            ps.setString(2, s.getId());
-            return ps.executeUpdate() > 0;
+            ps.setString(1, taikhoan);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next())
+            {
+                tk.setIdString(rs.getString("Id"));
+                tk.setPassWord(rs.getString("Pass_Word"));
+            }
+            else{
+                JOptionPane.showConfirmDialog(null, "Không có thông tin !");
+            }
         } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Lỗi truy cập csdl !");
+                JOptionPane.showMessageDialog(null, "Lỗi truy cập csld !");
         }
-        return false;
+        return tk;
     }
 }

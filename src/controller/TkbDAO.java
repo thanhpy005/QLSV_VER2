@@ -63,5 +63,25 @@ public class TkbDAO {
         }
         return list;
     }
+     public int getSoLuongHs(String s,String k,int m)
+     {
+        
+         String sql = "SELECT * FROM LichHoc WHERE Ma_mon=? AND Thu=? AND Tiet_bat_dau=?";
+         int res = 0;
+         try(Connection conn = DBConnection.getConnection())
+         {
+             PreparedStatement ps= conn.prepareStatement(sql);
+             ps.setString(1, s);
+             ps.setString(2,k);
+             ps.setInt(3, m);
+             ResultSet rs = ps.executeQuery();
+             
+             while(rs.next()) res++;
+             
+         } catch(Exception e){
+             
+         }
+         return res;
+     }
      
 }
