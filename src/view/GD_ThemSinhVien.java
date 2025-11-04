@@ -358,9 +358,15 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         ArrayList<Integer> tmp = new ArrayList<>();
         for(SinhVien i : list)
         {
+            String khoaString = KhoaSpinner.getValue().toString();
+            String msvString = i.getId().substring(1,3);
             String t2 = i.getId().substring(5);
             int t3 = Integer.parseInt(t2);
-            tmp.add(t3);
+            if(khoaString.equals(msvString))
+            {
+                tmp.add(t3);
+            }
+            
         }
         Collections.sort(tmp);
         for(int i = 0;i<tmp.size();i++)
