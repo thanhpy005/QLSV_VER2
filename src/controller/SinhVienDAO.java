@@ -289,6 +289,28 @@ public class SinhVienDAO {
             if(addSinhVien(s)) return true;
         return false;
     }
+     public boolean CapNhap2(SinhVien s)
+     {
+        String sql = "UPDATE SinhVien SET Name=?,Sex=?,Day_of_birth=?,MainClass=?,Address=?,Phone=?,Email=?,Status=?,Major=?,School_Year=? WHERE Id=?";
+         try (Connection conn = DBConnection.getConnection()){
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, s.getName());
+            ps.setString(2, s.getSex());
+            ps.setDate(3,new java.sql.Date(s.getDob().getTime()));
+            ps.setString(4,s.getMainClass() );
+            ps.setString(5,s.getAddress() );
+            ps.setString(6,s.getPhone() );
+            ps.setString(7, s.getEmail());
+            ps.setString(8, s.getStatus());
+            ps.setString(9, s.getMajor());
+            ps.setInt(10, s.getSchoolYear());
+            ps.setString(11, s.getId());
+            return ps.executeUpdate() > 0;
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return false;
+     }
      
      
      public void updateAvatar(String maSV, File fileAnh) {

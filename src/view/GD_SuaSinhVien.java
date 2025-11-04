@@ -386,6 +386,7 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
     }
     public void btnCapNhapClick()
     {
+        String nganhhocbandau = s.getMajor();
         SinhVien sv = new SinhVien();
         sv.setId(IdTextField.getText());
         sv.setName(NameTextField.getText());
@@ -410,14 +411,28 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Định dạng số không chính xác !");
         }
-        if(sinhVienDAO.CapNhap(sv))
+        if(!nganhhocbandau.equals(sv.getMajor()))
         {
-            JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thành công !");
+            if(sinhVienDAO.CapNhap(sv))
+            {
+                JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thành công !");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thất bại !");
+            }
         }
-        else
-        {
-            JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thất bại !");
+        else{
+            if(sinhVienDAO.CapNhap2(sv))
+            {
+                JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thành công !");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Cập nhập thông tin thất bại !");
+            }
         }
+      
         
     }
     public void btnCapNhapDiemClick()
