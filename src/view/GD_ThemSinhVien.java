@@ -354,7 +354,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
     {
         SinhVien s = new SinhVien();
         ArrayList<SinhVien> list  = new SinhVienDAO().getListSinhVien2Major((String)MajorComboBox.getSelectedItem());
-        int stt = list.size()+1;
+        
         ArrayList<Integer> tmp = new ArrayList<>();
         for(SinhVien i : list)
         {
@@ -368,6 +368,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
             }
             
         }
+        int stt = tmp.size()+1;
         Collections.sort(tmp);
         for(int i = 0;i<tmp.size();i++)
         {
