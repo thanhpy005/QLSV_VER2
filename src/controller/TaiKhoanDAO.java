@@ -33,11 +33,12 @@ public class TaiKhoanDAO {
     {
         if(x)
         {
-            String sql = "SELECT * FROM NhanVien WHERE Id=? AND Pass_Word=?";
+            String sql = "SELECT * FROM TaiKhoan WHERE Id=? and Pass_Word=? and Role=?";
             try (Connection conn = DBConnection.getConnection()){
                 PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, s);
+                ps.setString(1, s.toUpperCase());
                 ps.setString(2, q);
+                ps.setString(3,"NV");
                 ResultSet rs = ps.executeQuery();
                 if(rs.next())
                 {
@@ -58,7 +59,7 @@ public class TaiKhoanDAO {
         }
         else 
         {
-            String sql = "SELECT * FROM TaiKhoan WHERE Id=? and Pass_Word=?";
+            String sql = "SELECT * FROM TaiKhoan WHERE Id=? and Pass_Word=? and Role='SV'";
             try (Connection conn = DBConnection.getConnection()){
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, s.toUpperCase());
@@ -85,8 +86,8 @@ public class TaiKhoanDAO {
         return false;
     }
      
-     //cập nhật mật khẩu cho nhân viên
-     public TaiKhoan getTaiKhoan(TaiKhoan t)
+    
+    public TaiKhoan getTaiKhoan(TaiKhoan t)
     {
         String sql = "SELECT * FROM TaiKhoan WHERE Id=?";
         TaiKhoan tk = new TaiKhoan();

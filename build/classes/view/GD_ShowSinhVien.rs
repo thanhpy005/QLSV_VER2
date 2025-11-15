@@ -1,0 +1,3 @@
+view.ButtonRenderer
+view.GD_ShowSinhVien
+view.ButtonEditor
