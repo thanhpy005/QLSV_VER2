@@ -15,7 +15,7 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
 
     private TaiKhoanDAO taiKhoanDAO;
     
-    public GD_DoiMk1() {
+    public GD_DoiMk1(SinhVien s) {
         initComponents();
         
         
@@ -24,6 +24,7 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
         CapNhapButton.addActionListener(this);
         ResetButton.addActionListener(this);
         BackButton.addActionListener(this);
+        sinhVien = s;
     }
 
     /**
@@ -45,8 +46,6 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
         ResetButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
         MatKhauCuTextField = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        IdTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,14 +71,6 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
 
         BackButton.setText("Quay lại");
 
-        jLabel2.setText("Id:");
-
-        IdTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IdTextFieldActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,40 +83,30 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(CapNhapButton)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(CapNhapButton)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                                .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(89, 89, 89))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(MatKhauMoiTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                    .addComponent(MatKhauCuTextField)
-                                    .addComponent(XacNhanTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                    .addComponent(IdTextField))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MatKhauMoiTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                            .addComponent(MatKhauCuTextField)
+                            .addComponent(XacNhanTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(IdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(MatKhauCuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,10 +133,6 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
     private void MatKhauMoiTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatKhauMoiTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MatKhauMoiTextFieldActionPerformed
-
-    private void IdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IdTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,13 +161,11 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
     private javax.swing.JButton CapNhapButton;
-    private javax.swing.JTextField IdTextField;
     private javax.swing.JPasswordField MatKhauCuTextField;
     private javax.swing.JPasswordField MatKhauMoiTextField;
     private javax.swing.JButton ResetButton;
     private javax.swing.JPasswordField XacNhanTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -216,15 +191,15 @@ public class GD_DoiMk1 extends javax.swing.JFrame implements ActionListener{
         char[] temp3 = XacNhanTextField.getPassword();
         String NewMk  = new String(temp2);
         String XacNhanMk = new String(temp3);
-        String taikhoan = IdTextField.getText();
-        TaiKhoan tk = taiKhoanDAO.getTaiKhoan1(taikhoan);
+    
+        TaiKhoan tk = taiKhoanDAO.getTaiKhoan1(sinhVien.getId());
         if(MatKhauCuTextField.getText().equals(tk.getPassWord()))
         {
             if(NewMk.equals(XacNhanMk))
             {
                 char[] temp = XacNhanTextField.getPassword();
                 String Npass = new String(temp);
-                if(taiKhoanDAO.DoiMatKhau1(taikhoan, Npass))
+                if(taiKhoanDAO.DoiMatKhau(sinhVien.getId(), Npass))
                 {
                     JOptionPane.showMessageDialog(rootPane, "Đổi mật khẩu thành công !");
                 }

@@ -426,13 +426,7 @@ public class GD_Menu_SV1 extends javax.swing.JFrame implements ActionListener{
             this.dispose();
         }
     }
-    public void btnDoiMkClick()
-    {
-        GD_DoiMk winD_DoiMk = new GD_DoiMk(sinhVien);
-        winD_DoiMk.setLocationRelativeTo(null);
-        winD_DoiMk.setVisible(true);
-        this.dispose();
-    }
+   
     public void btnXemTkbClick()
     {
         GD_TkbTuan1 winD_TkbTuan = new GD_TkbTuan1(sinhVien);

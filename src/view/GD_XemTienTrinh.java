@@ -3,6 +3,7 @@ package view;
 
 import controller.TienTrinhDAO;
 import com.sun.jdi.connect.spi.Connection;
+import controller.TkbDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.DriverManager;
@@ -93,56 +94,56 @@ public class GD_XemTienTrinh extends javax.swing.JFrame implements ActionListene
             if(i.getHocKi() == 1)
             {
                 m1.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 2)
             {
                 m2.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 3)
             {
                 m3.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 4)
             {
                 m4.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 5)
             {
                 m5.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 6)
             {
                 m6.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 7)
             {
                 m7.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }
             else if(i.getHocKi() == 8)
             {
                 m8.addRow(new Object[]{
-                    i.getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
+                    new TkbDAO().getMonHoc(i.getMaMon(),i.getChuyenNganh()).getTenMon(),i.getKetQua(),(i.getKetQua() != 0)?"Hoàn thành" : "Chưa hoàn thành"
                 });
                
             }

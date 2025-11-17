@@ -6,8 +6,8 @@ import javax.print.DocFlavor;
 
 
 public class TienTrinh {
-    private String Id,TenMon,ChuyenNganh;
-
+    private String Id,MaMon,ChuyenNganh;
+    
     public String getChuyenNganh() {
         return ChuyenNganh;
     }
@@ -26,8 +26,8 @@ public class TienTrinh {
         return Id;
     }
 
-    public String getTenMon() {
-        return TenMon;
+    public String getMaMon() {
+        return MaMon;
     }
 
     public float getKetQua() {
@@ -42,8 +42,8 @@ public class TienTrinh {
         this.Id = Id.toUpperCase();
     }
 
-    public void setTenMon(String TenMon) {
-        this.TenMon = TenMon;
+    public void setMaMon(String TenMon) {
+        this.MaMon = TenMon;
     }
 
     public void setKetQua(float KetQua) {

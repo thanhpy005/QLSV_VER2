@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
-import model.LichHoc;
+import model.LopHocPhan;
 import model.SinhVien;
 
 /**
@@ -19,7 +19,7 @@ import model.SinhVien;
  * @author ThanhNguyen
  */
 public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
-    private ArrayList<LichHoc> list;
+    private ArrayList<LopHocPhan> list;
     private SinhVien sinhVien;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GD_TkbTuan.class.getName());
 
@@ -51,230 +51,231 @@ public class GD_TkbTuan extends javax.swing.JFrame implements ActionListener{
         BackButton.addActionListener(this);
         sinhVien = s;
         list = new TkbDAO().XemTKbSV(sinhVien.getId(), sinhVien.getSchoolYear());
-        for(LichHoc i : list)
+        for(LopHocPhan i : list)
         {
-            if(i.getDayString().equals(String.valueOf(2)))
+            if(i.getThu().equals(String.valueOf(2)))
             {
                 if(i.getTietBatDau() == 1)
                 {
-                    ID_ST2_2T.setText(i.getMamon());
-                    Name_ST2_2T.setText(i.getTenmon());
-                    Name_ST2_2T.setToolTipText(i.getTenmon());
-                    PHONG_ST2_2T.setText(i.getPhonghoc());
+                    ID_ST2_2T.setText(i.getMaMon());
+                    Name_ST2_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    Name_ST2_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST2_2T.setText(i.getPhong());
                     Thu2HaiTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 3)
                 {
-                    ID_ST2_3T.setText(i.getMamon());
-                    NAME_ST2_3T.setText(i.getTenmon());
-                    NAME_ST2_3T.setToolTipText(i.getTenmon());
-                    PHONG_ST2_3T.setText(i.getPhonghoc());
+                    ID_ST2_3T.setText(i.getMaMon());
+                    NAME_ST2_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST2_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST2_3T.setText(i.getPhong());
                     Thu2BaTiet.setBackground(new Color(173, 216, 230));
                 }
+                
                 else if(i.getTietBatDau() == 7)
                 {
-                    ID_CT2_2T.setText(i.getMamon());
-                    NAME_CT2_2T.setText(i.getTenmon());
-                    NAME_CT2_2T.setToolTipText(i.getTenmon());
-                    PHONG_CT2_2T.setText(i.getPhonghoc());
+                    ID_CT2_2T.setText(i.getMaMon());
+                    NAME_CT2_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT2_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT2_2T.setText(i.getPhong());
                     Thu2HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 9)
                 {
-                    ID_CT2_3T.setText(i.getMamon());
-                    NAME_CT2_3T.setText(i.getTenmon());
-                    NAME_CT2_3T.setToolTipText(i.getTenmon());
-                    PHONG_CT2_3T.setText(i.getPhonghoc());
+                    ID_CT2_3T.setText(i.getMaMon());
+                    NAME_CT2_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT2_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT2_3T.setText(i.getPhong());
                     Thu2BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
             }
         }
-        for(LichHoc i : list)
+        for(LopHocPhan i : list)
         {
-            if(i.getDayString().equals(String.valueOf(3)))
+            if(i.getThu().equals(String.valueOf(3)))
             {
                 if(i.getTietBatDau() == 1)
                 {
-                    ID_ST3_2T.setText(i.getMamon());
-                    NAME_ST3_2T.setText(i.getTenmon());
-                    NAME_ST3_2T.setToolTipText(i.getTenmon());
-                    PHONG_ST3_2T.setText(i.getPhonghoc());
+                    ID_ST3_2T.setText(i.getMaMon());
+                    NAME_ST3_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST3_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST3_2T.setText(i.getPhong());
                     Thu3HaiTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 3)
                 {
-                    ID_ST3_3T.setText(i.getMamon());
-                    NAME_ST3_3T.setText(i.getTenmon());
-                    NAME_ST3_3T.setToolTipText(i.getTenmon());
-                    PHONG_ST3_3T.setText(i.getPhonghoc());
+                    ID_ST3_3T.setText(i.getMaMon());
+                    NAME_ST3_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST3_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST3_3T.setText(i.getPhong());
                     Thu3BaTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 7)
                 {
-                    ID_CT3_2T.setText(i.getMamon());
-                    NAME_CT3_2T.setText(i.getTenmon());
-                    NAME_CT3_2T.setToolTipText(i.getTenmon());
-                    PHONG_CT3_2T.setText(i.getPhonghoc());
+                    ID_CT3_2T.setText(i.getMaMon());
+                    NAME_CT3_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT3_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT3_2T.setText(i.getPhong());
                     Thu3HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 9)
                 {
-                    ID_CT3_3T.setText(i.getMamon());
-                    NAME_CT3_3T.setText(i.getTenmon());
-                    NAME_CT3_3T.setToolTipText(i.getTenmon());
-                    PHONG_CT3_3T.setText(i.getPhonghoc());
+                    ID_CT3_3T.setText(i.getMaMon());
+                    NAME_CT3_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT3_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT3_3T.setText(i.getPhong());
                     Thu3BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
             }
         }
-        for(LichHoc i : list)
+        for(LopHocPhan i : list)
         {
-            if(i.getDayString().equals(String.valueOf(4)))
+            if(i.getThu().equals(String.valueOf(4)))
             {
                 if(i.getTietBatDau() == 1)
                 {
-                    ID_ST4_2T.setText(i.getMamon());
-                    NAME_ST4_2T.setText(i.getTenmon());
-                    NAME_ST4_2T.setToolTipText(i.getTenmon());
-                    PHONG_ST4_2T.setText(i.getPhonghoc());
+                    ID_ST4_2T.setText(i.getMaMon());
+                    NAME_ST4_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST4_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST4_2T.setText(i.getPhong());
                     Thu4HaiTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 3)
                 {
-                    ID_ST4_3T.setText(i.getMamon());
-                    NAME_ST4_3T.setText(i.getTenmon());
-                    NAME_ST4_3T.setToolTipText(i.getTenmon());
-                    PHONG_ST4_3T.setText(i.getPhonghoc());
+                    ID_ST4_3T.setText(i.getMaMon());
+                    NAME_ST4_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST4_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST4_3T.setText(i.getPhong());
                     Thu4BaTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 7)
                 {
-                    ID_CT4_2T.setText(i.getMamon());
-                    NAME_CT4_2T.setText(i.getTenmon());
-                    NAME_CT4_2T.setToolTipText(i.getTenmon());
-                    PHONG_CT4_2T.setText(i.getPhonghoc());
+                    ID_CT4_2T.setText(i.getMaMon());
+                    NAME_CT4_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT4_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT4_2T.setText(i.getPhong());
                     Thu4HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 9)
                 {
-                    ID_CT4_3T.setText(i.getMamon());
-                    NAME_CT4_3T.setText(i.getTenmon());
-                    NAME_CT4_3T.setToolTipText(i.getTenmon());
-                    PHONG_CT4_3T.setText(i.getPhonghoc());
+                    ID_CT4_3T.setText(i.getMaMon());
+                    NAME_CT4_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT4_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT4_3T.setText(i.getPhong());
                     Thu4BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
             }
         }
-        for(LichHoc i : list)
+        for(LopHocPhan i : list)
         {
-            if(i.getDayString().equals(String.valueOf(5)))
+            if(i.getThu().equals(String.valueOf(5)))
             {
                 if(i.getTietBatDau() == 1)
                 {
-                    ID_ST5_2T.setText(i.getMamon());
-                    NAME_ST5_2T.setText(i.getTenmon());
-                    NAME_ST5_2T.setToolTipText(i.getTenmon());
-                    PHONG_ST5_2T.setText(i.getPhonghoc());
+                    ID_ST5_2T.setText(i.getMaMon());
+                    NAME_ST5_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST5_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST5_2T.setText(i.getPhong());
                     Thu5HaiTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 3)
                 {
-                    ID_ST5_3T.setText(i.getMamon());
-                    NAME_ST5_3T.setText(i.getTenmon());
-                    NAME_ST5_3T.setToolTipText(i.getTenmon());
-                    PHONG_ST5_3T.setText(i.getPhonghoc());
+                    ID_ST5_3T.setText(i.getMaMon());
+                    NAME_ST5_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST5_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST5_3T.setText(i.getPhong());
                     Thu5BaTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 7)
                 {
-                    ID_CT5_2T.setText(i.getMamon());
-                    NAME_CT5_2T.setText(i.getTenmon());
-                    NAME_CT5_2T.setToolTipText(i.getTenmon());
-                    PHONG_CT5_2T.setText(i.getPhonghoc());
+                    ID_CT5_2T.setText(i.getMaMon());
+                    NAME_CT5_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT5_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT5_2T.setText(i.getPhong());
                     Thu5HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 9)
                 {
-                    ID_CT5_3T.setText(i.getMamon());
-                    NAME_CT5_3T.setText(i.getTenmon());
-                    NAME_CT5_3T.setToolTipText(i.getTenmon());
-                    PHONG_CT5_3T.setText(i.getPhonghoc());
+                    ID_CT5_3T.setText(i.getMaMon());
+                    NAME_CT5_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT5_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT5_3T.setText(i.getPhong());
                     Thu5BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
             }
         }
-        for(LichHoc i : list)
+        for(LopHocPhan i : list)
         {
-            if(i.getDayString().equals(String.valueOf(6)))
+            if(i.getThu().equals(String.valueOf(6)))
             {
                 if(i.getTietBatDau() == 1)
                 {
-                    ID_ST6_2T.setText(i.getMamon());
-                    NAME_ST6_2T.setText(i.getTenmon());
-                    NAME_ST6_2T.setToolTipText(i.getTenmon());
-                    PHONG_ST6_2T.setText(i.getPhonghoc());
+                    ID_ST6_2T.setText(i.getMaMon());
+                    NAME_ST6_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST6_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST6_2T.setText(i.getPhong());
                     Thu6HaiTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 3)
                 {
-                    ID_ST6_3T.setText(i.getMamon());
-                    NAME_ST6_3T.setText(i.getTenmon());
-                    NAME_ST6_3T.setToolTipText(i.getTenmon());
-                    PHONG_ST6_3T.setText(i.getPhonghoc());
+                    ID_ST6_3T.setText(i.getMaMon());
+                    NAME_ST6_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST6_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST6_3T.setText(i.getPhong());
                     Thu6BaTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 7)
                 {
-                    ID_CT6_2T.setText(i.getMamon());
-                    NAME_CT6_2T.setText(i.getTenmon());
-                    NAME_CT6_2T.setToolTipText(i.getTenmon());
-                    PHONG_CT6_2T.setText(i.getPhonghoc());
+                    ID_CT6_2T.setText(i.getMaMon());
+                    NAME_CT6_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT6_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT6_2T.setText(i.getPhong());
                     Thu6HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 9)
                 {
-                    ID_CT6_3T.setText(i.getMamon());
-                    NAME_CT6_3T.setText(i.getTenmon());
-                    NAME_CT6_3T.setToolTipText(i.getTenmon());
-                    PHONG_CT6_3T.setText(i.getPhonghoc());
+                    ID_CT6_3T.setText(i.getMaMon());
+                    NAME_CT6_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT6_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT6_3T.setText(i.getPhong());
                     Thu6BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
             }
         }
-        for(LichHoc i : list)
+        for(LopHocPhan i : list)
         {
-            if(i.getDayString().equals(String.valueOf(7)))
+            if(i.getThu().equals(String.valueOf(7)))
             {
                 if(i.getTietBatDau() == 1)
                 {
-                    ID_ST7_2T.setText(i.getMamon());
-                    NAME_ST7_2T.setText(i.getTenmon());
-                    NAME_ST7_2T.setToolTipText(i.getTenmon());
-                    PHONG_ST7_2T.setText(i.getPhonghoc());
+                    ID_ST7_2T.setText(i.getMaMon());
+                    NAME_ST7_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST7_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST7_2T.setText(i.getPhong());
                     Thu7HaiTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 3)
                 {
-                    ID_ST7_3T.setText(i.getMamon());
-                    NAME_ST7_3T.setText(i.getTenmon());
-                    NAME_ST7_3T.setToolTipText(i.getTenmon());
-                    PHONG_ST7_3T.setText(i.getPhonghoc());
+                    ID_ST7_3T.setText(i.getMaMon());
+                    NAME_ST7_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_ST7_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_ST7_3T.setText(i.getPhong());
                     Thu7BaTiet.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 7)
                 {
-                    ID_CT7_2T.setText(i.getMamon());
-                    NAME_CT7_2T.setText(i.getTenmon());
-                    NAME_CT7_2T.setToolTipText(i.getTenmon());
-                    PHONG_CT7_2T.setText(i.getPhonghoc());
+                    ID_CT7_2T.setText(i.getMaMon());
+                    NAME_CT7_2T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT7_2T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT7_2T.setText(i.getPhong());
                     Thu7HaiTietChieu.setBackground(new Color(173, 216, 230));
                 }
                 else if(i.getTietBatDau() == 9)
                 {
-                    ID_CT7_3T.setText(i.getMamon());
-                    NAME_CT7_3T.setText(i.getTenmon());
-                    NAME_CT7_3T.setToolTipText(i.getTenmon());
-                    PHONG_CT7_3T.setText(i.getPhonghoc());
+                    ID_CT7_3T.setText(i.getMaMon());
+                    NAME_CT7_3T.setText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    NAME_CT7_3T.setToolTipText(new TkbDAO().getMonHoc(i.getMaMon(), s.getMajor()).getTenMon());
+                    PHONG_CT7_3T.setText(i.getPhong());
                     Thu7BaTietChieu.setBackground(new Color(173, 216, 230));
                 }
             }

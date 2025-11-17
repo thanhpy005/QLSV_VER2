@@ -25,7 +25,7 @@ public class TienTrinhDAO {
             {
                 TienTrinh tr = new TienTrinh();
                 tr.setId(rs.getString("Id"));
-                tr.setTenMon(rs.getString("TenMon"));
+                tr.setMaMon(rs.getString("MaMon"));
                 tr.setKetQua(rs.getFloat("KetQua"));
                 tr.setHocKi(rs.getInt("HocKi"));
                 tr.setChuyenNganh(rs.getString("ChuyenNganh"));
@@ -51,7 +51,7 @@ public class TienTrinhDAO {
              {
                  TienTrinh tr =new TienTrinh();
                  tr.setId(rs.getString("Id"));
-                 tr.setTenMon(rs.getString("TenMon"));
+                 tr.setMaMon(rs.getString("MaMon"));
                  tr.setKetQua(rs.getFloat("KetQua"));
                  tr.setHocKi(rs.getInt("HocKi"));
                  tr.setChuyenNganh(rs.getString("ChuyenNganh"));
@@ -83,16 +83,37 @@ public class TienTrinhDAO {
      
      public boolean SetDiem(TienTrinh s)
     {
-        String sql = "UPDATE TienTrinh SET KetQua=? WHERE Id=? AND TenMon=?";
+        String sql = "UPDATE TienTrinh SET KetQua=? WHERE Id=? AND MaMon=?";
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setFloat(1, s.getKetQua());
             ps.setString(2, s.getId());
-            ps.setString(3, s.getTenMon());
+            ps.setString(3, s.getMaMon());
             return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
+     public TienTrinh getTienTrinh2SV(String s)
+     {
+         String sql = "SELECT * FROM TienTrinh WHERE Id=?";
+         TienTrinh res = new TienTrinh();
+         try (Connection conn = DBConnection.getConnection()){
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ps.setString(1, s);
+             ResultSet rs = ps.executeQuery();
+             if(rs.next())
+             {
+                 res.setId(s);
+                 res.setMaMon(rs.getString("MaMon"));
+                 res.setKetQua(rs.getFloat("KetQua"));
+                 res.setHocKi(rs.getInt("HocKi"));
+                 res.setChuyenNganh(rs.getString("ChuyenNganh"));
+             }
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return res;
+     }
 }

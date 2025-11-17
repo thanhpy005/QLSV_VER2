@@ -9,7 +9,7 @@ package model;
  * @author ThanhNguyen
  */
 public class TaiKhoan {
-    private String IdString,PassWord,Type;
+    private String IdString,PassWord,Role;
 
     public TaiKhoan() {
     }
@@ -27,7 +27,7 @@ public class TaiKhoan {
     }
 
     public void setType(String Type) {
-        this.Type = Type;
+        this.Role = Type;
     }
 
     public String getPassWord() {
@@ -35,7 +35,7 @@ public class TaiKhoan {
     }
 
     public String getType() {
-        return Type;
+        return Role;
     }
     
 }

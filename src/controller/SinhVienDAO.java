@@ -2,6 +2,7 @@
 package controller;
 
 import java.awt.Image;
+import java.awt.List;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultEditorKit;
-import model.CacMonHoc;
+import model.MonHoc;
 import model.SinhVien;
 import util.DBConnection;
 
@@ -21,25 +22,27 @@ public class SinhVienDAO {
     {
         ArrayList<SinhVien> list  = new ArrayList<>();
         String sql = "SELECT * FROM SinhVien WHERE Major=?";
-        try (Connection conn = DBConnection.getConnection()){
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = DBConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)
+              ){
             ps.setString(1, s);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next())
-            {
-                SinhVien sv = new SinhVien();
-                sv.setId(rs.getString("Id"));
-                sv.setName(rs.getString("Name"));
-                sv.setSex(rs.getString("Sex"));
-                sv.setDob(rs.getDate("Day_of_birth"));
-                sv.setMainClass(rs.getString("MainClass"));
-                sv.setAddress(rs.getString("Address"));
-                sv.setPhone(rs.getString("Phone"));
-                sv.setEmail(rs.getString("Email"));
-                sv.setStatus(rs.getString("Status"));
-                sv.setMajor(rs.getString("Major"));
-                sv.setSchoolYear(rs.getInt("School_Year"));
-                list.add(sv);
+            try(ResultSet rs = ps.executeQuery()){
+                while(rs.next())
+                {
+                    SinhVien sv = new SinhVien();
+                    sv.setId(rs.getString("Id"));
+                    sv.setName(rs.getString("Name"));
+                    sv.setSex(rs.getString("Sex"));
+                    sv.setDob(rs.getDate("Day_of_birth"));
+                    sv.setMainClass(rs.getString("MainClass"));
+                    sv.setAddress(rs.getString("Address"));
+                    sv.setPhone(rs.getString("Phone"));
+                    sv.setEmail(rs.getString("Email"));
+                    sv.setStatus(rs.getString("Status"));
+                    sv.setMajor(rs.getString("Major"));
+                    sv.setSchoolYear(rs.getInt("School_Year"));
+                    list.add(sv);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,135 +90,70 @@ public class SinhVienDAO {
         
 
         String sql = "INSERT INTO SinhVien(Id,Name,Sex,Day_of_birth,MainClass,Address,Phone,Email,Status,Major,School_Year) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-        String sql1 = "INSERT INTO TaiKhoan(Id,Pass_Word) VALUES(?,?)";
-        String sql2 = "INSERT INTO TienTrinh(Id,TenMon,KetQua,HocKi,ChuyenNganh) VALUES(?,?,?,?,?)";
+        String sql1 = "INSERT INTO TaiKhoan(Id,Pass_Word,Role) VALUES(?,?,?)";
+        String sql2 = "INSERT INTO TienTrinh(Id,MaMon,KetQua,HocKi,ChuyenNganh) VALUES(?,?,?,?,?)";
+        String sql3 = "SELECT * FROM MonHoc WHERE ChuyenNganh=?";
         try (Connection conn = DBConnection.getConnection()){
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, s.getId());
-            ps.setString(2, s.getName());
-            ps.setString(3, s.getSex());
-            ps.setDate(4,new java.sql.Date(s.getDob().getTime()));
-            ps.setString(5, s.getMainClass());
-            ps.setString(6, s.getAddress());
-            ps.setString(7, s.getPhone());
-            ps.setString(8, s.getEmail());
-            ps.setString(9, s.getStatus());
-            ps.setString(10, s.getMajor());
-            ps.setInt(11, s.getSchoolYear());
-
-            PreparedStatement ps1 = conn.prepareStatement(sql1);
-            ps1.setString(1,s.getId());
-            ps1.setString(2, "123");
-            int ex1 = ps.executeUpdate();
-            int ex2 = ps1.executeUpdate();
-            if(ex1 > 0 && ex2>0)
-            {
-                PreparedStatement ps2 = conn.prepareStatement(sql2);
-                String[] TenMonHoc;
-                if(s.getMajor().equals("IT"))
-                {
-                    TenMonHoc = new CacMonHoc().IT_TienTrinh;
-                    for(int i = 0;i<45;i++)
-                    {
-
-                        ps2.setString(1, s.getId());
-                        ps2.setString(2, TenMonHoc[i]);
-                        ps2.setFloat(3, 0);
-                        if(i<4) ps2.setInt(4, 1);
-                        else if(i<11) ps2.setInt(4, 2);
-                        else if(i < 18) ps2.setInt(4, 3);
-                        else if(i < 25) ps2.setInt(4, 4);
-                        else if(i< 32) ps2.setInt(4, 5);
-                        else if(i<38) ps2.setInt(4, 6);
-                        else if(i < 44) ps2.setInt(4, 7);
-                        else ps2.setInt(4, 8);
-                        ps2.setString(5,s.getMajor());
-                        ps2.executeUpdate();
-                    }
-                }
-                else if(s.getMajor().equals("BC"))
-                {
-                    TenMonHoc = new CacMonHoc().BC_TienTrinh;
-                    for(int i = 0;i<=45;i++)
-                    {
-                        ps2.setString(1, s.getId());
-                        ps2.setString(2, TenMonHoc[i]);
-                        ps2.setFloat(3, 0);
-                        if(i<5) ps2.setInt(4, 1);
-                        else if(i<13) ps2.setInt(4, 2);
-                        else if(i < 20) ps2.setInt(4, 3);
-                        else if(i < 26) ps2.setInt(4, 4);
-                        else if(i< 34) ps2.setInt(4, 5);
-                        else if(i<39) ps2.setInt(4, 6);
-                        else if(i < 45) ps2.setInt(4, 7);
-                        else ps2.setInt(4, 8);
-                        ps2.setString(5,s.getMajor());
-                        ps2.executeUpdate();
-                    }
-                }
-                else if(s.getMajor().equals("KHMT"))
-                {
-                    TenMonHoc = new CacMonHoc().KHMT_TienTrinh;
-                    for(int i = 0;i<48;i++)
-                    {
-                        ps2.setString(1, s.getId());
-                        ps2.setString(2, TenMonHoc[i]);
-                        ps2.setFloat(3, 0);
-                        if(i<4) ps2.setInt(4, 1);
-                        else if(i<11) ps2.setInt(4, 2);
-                        else if(i < 17) ps2.setInt(4, 3);
-                        else if(i < 23) ps2.setInt(4, 4);
-                        else if(i< 30) ps2.setInt(4, 5);
-                        else if(i<36) ps2.setInt(4, 6);
-                        else if(i < 42) ps2.setInt(4, 7);
-                        else ps2.setInt(4, 8);
-                        ps2.setString(5,s.getMajor());
-                        ps2.executeUpdate();
-                    }
-                }
-                else if(s.getMajor().equals("QT"))
-                {
-                    TenMonHoc = new CacMonHoc().IT_TienTrinh;
-                    for(int i = 0;i<46;i++)
-                    {
-                        ps2.setString(1, s.getId());
-                        ps2.setString(2, TenMonHoc[i]);
-                        ps2.setFloat(3, 0);
-                        if(i<5) ps2.setInt(4, 1);
-                        else if(i<11) ps2.setInt(4, 2);
-                        else if(i < 17) ps2.setInt(4, 3);
-                        else if(i < 24) ps2.setInt(4, 4);
-                        else if(i< 31) ps2.setInt(4, 5);
-                        else if(i<38) ps2.setInt(4, 6);
-                        else if(i < 45) ps2.setInt(4, 7);
-                        else ps2.setInt(4, 8);
-                        ps2.setString(5,s.getMajor());
-                        ps2.executeUpdate();
-                    }
-                }
-                else if(s.getMajor().equals("MK"))
-                {
-                    TenMonHoc = new CacMonHoc().MK_TienTrinh;
-                    for(int i = 0;i<45;i++)
-                    {
-                        ps2.setString(1, s.getId());
-                        ps2.setString(2, TenMonHoc[i]);
-                        ps2.setFloat(3, 0);
-                        if(i<5) ps2.setInt(4, 1);
-                        else if(i<11) ps2.setInt(4, 2);
-                        else if(i < 16) ps2.setInt(4, 3);
-                        else if(i < 23) ps2.setInt(4, 4);
-                        else if(i< 31) ps2.setInt(4, 5);
-                        else if(i<38) ps2.setInt(4, 6);
-                        else if(i < 44) ps2.setInt(4, 7);
-                        else ps2.setInt(4, 8);
-                        ps2.setString(5,s.getMajor());
-                        ps2.executeUpdate();
-                    }
-                }
-            }
+            conn.setAutoCommit(false);
+            try(PreparedStatement ps = conn.prepareStatement(sql)){
             
-            return ex1 > 0 && ex2>0;
+                ps.setString(1, s.getId());
+                ps.setString(2, s.getName());
+                ps.setString(3, s.getSex());
+                ps.setDate(4,new java.sql.Date(s.getDob().getTime()));
+                ps.setString(5, s.getMainClass());
+                ps.setString(6, s.getAddress());
+                ps.setString(7, s.getPhone());
+                ps.setString(8, s.getEmail());
+                ps.setString(9, s.getStatus());
+                ps.setString(10, s.getMajor());
+                ps.setInt(11, s.getSchoolYear());
+                ps.executeUpdate();
+            }
+
+            try(PreparedStatement ps1 = conn.prepareStatement(sql1)){
+                ps1.setString(1,s.getId());
+                ps1.setString(2, "123");
+                ps1.setString(3,"SV");
+                ps1.executeUpdate();
+            }
+       
+            
+                
+                ArrayList<MonHoc> list = new ArrayList<>();
+                
+                try(PreparedStatement ps3 = conn.prepareStatement(sql3)){
+                    ps3.setString(1, s.getMajor());
+                    try(ResultSet rs = ps3.executeQuery()){
+                        while (rs.next()) {
+                              MonHoc m = new MonHoc();
+                              m.setMaMon(rs.getString("MaMon"));
+                              m.setTenMon(rs.getString("TenMon"));
+                              m.setSoTinChi(rs.getInt("SoTinChi"));
+                              m.setChuyenNganh(rs.getString("ChuyenNganh"));
+                              m.setKiHoc(rs.getInt("KiHoc"));
+                              list.add(m);
+                          }
+                    
+                    }
+                }
+                try(PreparedStatement ps2 = conn.prepareStatement(sql2);){
+                
+                    for(MonHoc i : list)
+                        {
+                            ps2.setString(1, s.getId());
+                            ps2.setString(2, i.getMaMon());
+                            ps2.setFloat(3, 0);
+                            ps2.setInt(4, i.getKiHoc());
+                            ps2.setString(5, i.getChuyenNganh());
+                            ps2.addBatch();
+
+                        }
+                    ps2.executeBatch();
+                }
+                
+            conn.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ID đã tồn tại hoặc bạn đang để thông tin trống");

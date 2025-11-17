@@ -1,93 +1,150 @@
-
 package controller;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import model.GiangVien;
+import model.NhanVien;
 import model.SinhVien;
 import model.TaiKhoan;
 import util.DBConnection;
-import view.GD_Menu_Admin;
-import view.GD_Menu_SV;
+import view.*;
 
 public class TaiKhoanDAO {
-     public boolean AddTaiKhoan(String id, String pass)
-    {
-        String sql = "INSERT INTO NhanVien(Id,Pass_Word) VALUES(?,?)";
-        try (Connection conn = DBConnection.getConnection()){
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, id);
-            ps.setString(2, pass);
-            return ps.executeUpdate() > 0;
+
+    public boolean AddNhanVien(String id, String pass, String name, String dob, String address) {
+        Connection conn = null;
+        PreparedStatement psTaiKhoan = null;
+        PreparedStatement psNhanVien = null;
+        
+        // Giả sử vai trò Nhân viên được lưu là 'NV' trong CSDL
+        String sqlTaiKhoan = "INSERT INTO TaiKhoan(Id, Pass_Word, Role) VALUES(?,?, 'NV')";
+        // Bảng NhanVien dùng 'username' làm khóa ngoại trỏ đến 'Id' của TaiKhoan
+        String sqlNhanVien = "INSERT INTO NhanVien(username, Name, DOB, Address) VALUES(?,?,?,?)";
+
+        try {
+            conn = DBConnection.getConnection();
+            conn.setAutoCommit(false);
+
+            // 1. Thêm vào bảng TaiKhoan
+            psTaiKhoan = conn.prepareStatement(sqlTaiKhoan);
+            psTaiKhoan.setString(1, id);
+            psTaiKhoan.setString(2, pass);
+            psTaiKhoan.executeUpdate();
+
+            // 2. Thêm vào bảng NhanVien
+            psNhanVien = conn.prepareStatement(sqlNhanVien);
+            psNhanVien.setString(1, id); 
+            psNhanVien.setString(2, name);
+            psNhanVien.setString(3, dob); 
+            psNhanVien.setString(4, address);
+            psNhanVien.executeUpdate();
+
+            conn.commit();
+            return true;
+
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Tài khoản có thể đã tồn tại hoặc bạn đang để trống thông tin !");
+            // Nếu có lỗi, rollback tất cả thay đổi
+            try {
+                if (conn != null) {
+                    conn.rollback();
+                }
+            } catch (Exception e_roll) {
+                e_roll.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null, "Lỗi khi thêm tài khoản! ID có thể đã tồn tại hoặc thông tin không hợp lệ.");
+            return false;
+        } finally {
+            try {
+                if (psTaiKhoan != null) psTaiKhoan.close();
+                if (psNhanVien != null) psNhanVien.close();
+                if (conn != null) {
+                    conn.setAutoCommit(true); // Trả lại trạng thái auto-commit
+                    conn.close();
+                }
+            } catch (Exception e_close) {
+                e_close.printStackTrace();
+            }
         }
-        return false;
     }
      
      
-     public boolean DangNhap(String s, String q, boolean x)
-    {
-        if(x)
-        {
-            String sql = "SELECT * FROM TaiKhoan WHERE Id=? and Pass_Word=? and Role=?";
-            try (Connection conn = DBConnection.getConnection()){
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, s.toUpperCase());
-                ps.setString(2, q);
-                ps.setString(3,"NV");
-                ResultSet rs = ps.executeQuery();
-                if(rs.next())
-                {
-                    GD_Menu_Admin winAdmin = new GD_Menu_Admin();
-                    winAdmin.setLocationRelativeTo(null);
-                    winAdmin.setVisible(true);
-                    return true;
-                }
-                else 
-                {
-                    JOptionPane.showMessageDialog(null, "Thông tin đăng nhập không chính xác !");
-                    return false;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Thông tin đăng nhập không chính xác !");
-            }
+    public boolean DangNhap(String id, String pass, String expectedRole) {
+        
+        // 1. Kiểm tra xem người dùng có chọn vai trò không
+        if (expectedRole.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Bạn vui lòng chọn vai trò (Sinh viên, Giảng viên hoặc Nhân viên).");
+            return false;
         }
-        else 
-        {
-            String sql = "SELECT * FROM TaiKhoan WHERE Id=? and Pass_Word=? and Role='SV'";
-            try (Connection conn = DBConnection.getConnection()){
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, s.toUpperCase());
-                ps.setString(2, q);
-                ResultSet rs = ps.executeQuery();
-                if(rs.next())
-                {
-                    SinhVienDAO sinhVienDAO = new SinhVienDAO();
-                    SinhVien sinhVien = sinhVienDAO.getSinhVien(s);
-                    GD_Menu_SV winD_Menu_SV = new GD_Menu_SV(sinhVien);
-                    winD_Menu_SV.setLocationRelativeTo(null);
-                    winD_Menu_SV.setVisible(true);
-                    return true;
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Thông tin đăng nhập không chính xác !");
+
+        // 2. Truy vấn tài khoản và mật khẩu
+        String sql = "SELECT * FROM TaiKhoan WHERE Id=? AND Pass_Word=?";
+        try (Connection conn = DBConnection.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // Dùng toUpperCase() cho ID (thường là Mã SV, Mã NV...)
+            ps.setString(1, id.toUpperCase()); 
+            ps.setString(2, pass);
+            
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                // 3. Nếu đúng user/pass, lấy vai trò THỰC TẾ từ CSDL
+                String actualRole = rs.getString("Role"); 
+
+                // 4. So sánh vai trò thực tế với vai trò người dùng CHỌN
+                if (actualRole.equalsIgnoreCase(expectedRole)) {
+                    
+                    // Nếu khớp, mở giao diện tương ứng
+                    switch (actualRole.toUpperCase()) { // Dùng toUpperCase để an toàn
+                        case "SV":
+                            SinhVienDAO sinhVienDAO = new SinhVienDAO();
+                            // Lấy thông tin SV bằng ID đã nhập
+                            SinhVien sinhVien = sinhVienDAO.getSinhVien(id.toUpperCase());
+                            GD_Menu_SV winD_Menu_SV = new GD_Menu_SV(sinhVien);
+                            winD_Menu_SV.setLocationRelativeTo(null);
+                            winD_Menu_SV.setVisible(true);
+                            return true;
+                            
+                        case "GV": 
+                            GiangVien giangVien = new GiangVienDAO().getGiangVien(id);
+                            GD_Menu_GV winD_Menu_GV = new GD_Menu_GV(giangVien);
+                            winD_Menu_GV.setLocationRelativeTo(null);
+                            winD_Menu_GV.setVisible(true);
+                            return true;
+                            
+                        case "NV": // Thêm trường hợp "ADMIN" nếu có
+                            NhanVien nhanVien = new NhanVienDAO().getNhanVien(id);
+                            GD_Menu_Admin1 winAdmin = new GD_Menu_Admin1(nhanVien);
+                            winAdmin.setLocationRelativeTo(null);
+                            winAdmin.setVisible(true);
+                            return true;
+                            
+                        default:
+                            JOptionPane.showMessageDialog(null, "Vai trò người dùng " + actualRole + " không được hỗ trợ!");
+                            return false;
+                    }
+                } else {
+                    // Nếu không khớp (ví dụ: đăng nhập tài khoản SV nhưng chọn là NV)
+                    JOptionPane.showMessageDialog(null, "Thông tin đăng nhập đúng, nhưng bạn đã chọn sai vai trò!");
                     return false;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Thông tin đăng nhập không chính xác !");
+            } else {
+                // Sai ID hoặc mật khẩu
+                JOptionPane.showMessageDialog(null, "Thông tin đăng nhập không chính xác!");
+                return false;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi truy cập cơ sở dữ liệu!");
         }
         return false;
     }
+
      
-    
-    public TaiKhoan getTaiKhoan(TaiKhoan t)
+     //cập nhật mật khẩu (chung)
+     public TaiKhoan getTaiKhoan(TaiKhoan t)
     {
         String sql = "SELECT * FROM TaiKhoan WHERE Id=?";
         TaiKhoan tk = new TaiKhoan();
@@ -109,23 +166,10 @@ public class TaiKhoanDAO {
         return tk;
     }
      
-     public boolean DoiMatKhau(SinhVien t,String NewPass)
+     // Đổi mật khẩu cho SinhVien (truyền đối tượng SinhVien)
+     public boolean DoiMatKhau(String t,String NewPass)
     {
         String sql = "UPDATE TaiKhoan SET Pass_Word=? WHERE Id=?";
-        try (Connection conn = DBConnection.getConnection()){
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, NewPass);
-            ps.setString(2, t.getId());
-            return ps.executeUpdate() > 0;
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Lỗi truy cập csdl !");
-        }
-        return false;
-    }
-     public boolean DoiMatKhau1(String t,String NewPass)
-    {
-        String sql = "UPDATE NhanVien SET Pass_Word=? WHERE Id=?";
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, NewPass);
@@ -138,7 +182,8 @@ public class TaiKhoanDAO {
         return false;
     }
      
-     //cập nhật mk cho sinh viên
+     
+     // Lấy tài khoản cho SinhVien
      public TaiKhoan getTaiKhoan(SinhVien s)
     {
         String sql = "SELECT * FROM TaiKhoan WHERE Id=?";
@@ -160,9 +205,11 @@ public class TaiKhoanDAO {
         }
         return tk;
     }
+     
+    // Lấy tài khoản cho Nhân viên/GV
      public TaiKhoan getTaiKhoan1(String taikhoan)
     {
-        String sql = "SELECT * FROM NhanVien WHERE Id=?";
+        String sql = "SELECT * FROM TaiKhoan WHERE Id=?";
         TaiKhoan tk = new TaiKhoan();
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);

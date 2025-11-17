@@ -9,6 +9,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import model.NhanVien;
 import model.SinhVien;
 
 
@@ -19,8 +20,8 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
 
     private SinhVienDAO sinhVienDAO;
     private SinhVien s;
-    
-    public GD_SuaSinhVien() {
+    private NhanVien nhanVien;
+    public GD_SuaSinhVien(NhanVien s) {
         initComponents();
         
         sinhVienDAO = new SinhVienDAO();
@@ -30,11 +31,11 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         UpdateButton.addActionListener(this);
         TimKiemButton.addActionListener(this);
         XoaSinhVienButton.addActionListener(this);
-        CapNhapDiemButton.addActionListener(this);
         gioitinh.add(MaleCheckBox);
         gioitinh.add(FemaleCheckBox);
         trangthai.add(StudyingCheckBox);
         trangthai.add(GraduatedCheckBox);
+        nhanVien = s;
     }
 
     /**
@@ -74,12 +75,11 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         StudyingCheckBox = new javax.swing.JCheckBox();
         GraduatedCheckBox = new javax.swing.JCheckBox();
         XoaSinhVienButton = new javax.swing.JButton();
-        CapNhapDiemButton = new javax.swing.JButton();
         ngaySpinner = new javax.swing.JSpinner();
         thangSpinner = new javax.swing.JSpinner();
         namSpinner = new javax.swing.JSpinner();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -130,8 +130,6 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
 
         XoaSinhVienButton.setText("Xóa sinh viên");
 
-        CapNhapDiemButton.setText("Cập nhập điểm");
-
         ngaySpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
         thangSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
@@ -159,52 +157,50 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel3))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(SchoolYearTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                                            .addComponent(EmailTextField)
-                                            .addComponent(PhoneTextField)
-                                            .addComponent(AddressTextField)
-                                            .addComponent(ClassTextField)
-                                            .addComponent(NameTextField)
-                                            .addComponent(MajorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(StudyingCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(GraduatedCheckBox))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(ngaySpinner, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                                    .addComponent(MaleCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(0, 0, 0)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(FemaleCheckBox)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(thangSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(0, 0, 0)
-                                                        .addComponent(namSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(UpdateButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(XoaSinhVienButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(CapNhapDiemButton)))))))
-                .addGap(141, 141, 141))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(UpdateButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(XoaSinhVienButton))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(49, 49, 49)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel3))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(SchoolYearTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                                        .addComponent(EmailTextField)
+                                        .addComponent(PhoneTextField)
+                                        .addComponent(AddressTextField)
+                                        .addComponent(ClassTextField)
+                                        .addComponent(NameTextField)
+                                        .addComponent(MajorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(StudyingCheckBox)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(GraduatedCheckBox))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(ngaySpinner, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                                .addComponent(MaleCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGap(0, 0, 0)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(FemaleCheckBox)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(thangSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(namSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
+                .addGap(157, 157, 157))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,8 +265,7 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UpdateButton)
-                    .addComponent(XoaSinhVienButton)
-                    .addComponent(CapNhapDiemButton))
+                    .addComponent(XoaSinhVienButton))
                 .addGap(28, 28, 28))
         );
 
@@ -303,13 +298,12 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GD_SuaSinhVien().setVisible(true));
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTextField;
     private javax.swing.JButton BackButton;
-    private javax.swing.JButton CapNhapDiemButton;
     private javax.swing.JTextField ClassTextField;
     private javax.swing.JTextField EmailTextField;
     private javax.swing.JCheckBox FemaleCheckBox;
@@ -348,10 +342,10 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         if(e.getSource().equals(TimKiemButton)) btnTimKiemClick();
         else if(e.getSource().equals(UpdateButton)) btnCapNhapClick();
         else if(e.getSource().equals(XoaSinhVienButton)) btnXoaSinhVienClick();
-        else if(e.getSource().equals(CapNhapDiemButton)) btnCapNhapDiemClick();
+        
         else
         {
-            GD_Menu_Admin winAdmin = new GD_Menu_Admin();
+            GD_Menu_Admin1 winAdmin = new GD_Menu_Admin1(nhanVien);
             winAdmin.setLocationRelativeTo(null);
             winAdmin.setVisible(true);
             this.dispose();
@@ -434,12 +428,6 @@ public class GD_SuaSinhVien extends javax.swing.JFrame implements ActionListener
         }
       
         
-    }
-    public void btnCapNhapDiemClick()
-    {
-        GD_CapNhapDiem winCapNhapDiem = new GD_CapNhapDiem(s);
-        winCapNhapDiem.setLocationRelativeTo(null);
-        winCapNhapDiem.setVisible(true);
     }
     public void btnXoaSinhVienClick()
     {

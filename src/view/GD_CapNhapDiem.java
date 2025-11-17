@@ -3,11 +3,14 @@ package view;
 
 import controller.SinhVienDAO;
 import controller.TienTrinhDAO;
+import controller.TkbDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.DangKiMon;
+import model.LopHocPhan;
 import model.SinhVien;
 import model.TienTrinh;
 
@@ -18,20 +21,36 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
 
     private SinhVienDAO sinhVienDAO;
     private TienTrinhDAO tienTrinhDAO;
+    private LopHocPhan lopHocPhan;
     private SinhVien sinhVien;
-    
-    public GD_CapNhapDiem(SinhVien sinhVien) {
+    private ArrayList<DangKiMon> list;
+    private ArrayList<SinhVien> list2 = new ArrayList<>();
+    public GD_CapNhapDiem(LopHocPhan l) {
         initComponents();
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         sinhVienDAO = new SinhVienDAO();
         tienTrinhDAO = new TienTrinhDAO();
-        this.sinhVien = sinhVien;
-        TimSinhVienButton.addActionListener(this);
+        lopHocPhan = l;
         CapNhapButton.addActionListener(this);
         BackButton.addActionListener(this);
-        
-        IdTextField.setText(sinhVien.getId());
-        KiHocTextField.setText(String.valueOf(sinhVien.getSchoolYear()));
+        list = new TkbDAO().getListDKM(l.getMaLHP());
+        model = (DefaultTableModel) SuaDiemTable.getModel();
+        model.setRowCount(0);
+        model.setColumnIdentifiers(new Object[]{
+            "MaSV","Họ và tên","Kết quả"
+        });
+        for(DangKiMon  i : list)
+        {
+            SinhVien tmp = new SinhVienDAO().getSinhVien(i.getMaSV());
+            list2.add(tmp);
+        }
+        for(SinhVien i : list2)
+        {
+            TienTrinh t = new TienTrinhDAO().getTienTrinh2SV(i.getId());
+            model.addRow(new Object[]{
+                i.getId(),i.getName(),String.valueOf(t.getKetQua())
+            });
+        }
     }
 
     /**
@@ -45,13 +64,8 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
 
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        IdTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         SuaDiemTable = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        KiHocTextField = new javax.swing.JTextField();
-        TimSinhVienButton = new javax.swing.JButton();
         CapNhapButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
 
@@ -63,8 +77,6 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CẬP NHẬP ĐIỂM ");
 
-        jLabel2.setText("ID:");
-
         SuaDiemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -74,10 +86,6 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
             }
         ));
         jScrollPane1.setViewportView(SuaDiemTable);
-
-        jLabel3.setText("Kì học:");
-
-        TimSinhVienButton.setText("Tìm");
 
         CapNhapButton.setText("Cập nhập");
 
@@ -89,22 +97,9 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(KiHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(TimSinhVienButton)
-                        .addGap(237, 237, 237))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(CapNhapButton)
                         .addGap(232, 232, 232))
@@ -117,20 +112,10 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(IdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(KiHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TimSinhVienButton)
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
                 .addComponent(CapNhapButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(BackButton)
                 .addContainerGap())
         );
@@ -166,64 +151,41 @@ public class GD_CapNhapDiem extends javax.swing.JFrame implements ActionListener
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
     private javax.swing.JButton CapNhapButton;
-    private javax.swing.JTextField IdTextField;
-    private javax.swing.JTextField KiHocTextField;
     private javax.swing.JTable SuaDiemTable;
-    private javax.swing.JButton TimSinhVienButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource().equals(TimSinhVienButton)) btnTimClick();
-        else if(e.getSource().equals(CapNhapButton)) btnCapNhapClick();
+        
+        if(e.getSource().equals(CapNhapButton)) btnCapNhapClick();
         else
         {
             this.dispose();
         }
      }
-    public void btnTimClick()
-    {
-        SinhVien NewSinhVien = sinhVienDAO.getSinhVien(IdTextField.getText());
-        ArrayList<TienTrinh> NewTienTrinh = tienTrinhDAO.getTienTrinh(NewSinhVien);
-        model = (DefaultTableModel) SuaDiemTable.getModel();
-        model.setRowCount(0);
-        model.setColumnIdentifiers(new Object[]{
-            "STT","Tên môn","Kết quả"
-        });
-        int cnt=1;
-        for(TienTrinh i : NewTienTrinh)
-        {
-            if(i.getHocKi() == Integer.parseInt(KiHocTextField.getText()))
-            {
-                model.addRow(new Object[]{
-                    cnt,i.getTenMon(),i.getKetQua()
-                });
-                cnt+=1;
-            }
-        }
-    }
+    
     public void btnCapNhapClick()
     {
-        SinhVien NewSinhVien = sinhVienDAO.getSinhVien(IdTextField.getText());
-        TienTrinh tr = new TienTrinh();
-        tr.setId(NewSinhVien.getId());
-        tr.setHocKi(Integer.parseInt(KiHocTextField.getText()));
-        tr.setChuyenNganh(NewSinhVien.getMajor());
+        TienTrinh t = new TienTrinh();
         for(int i = 0;i<model.getRowCount();i++)
         {
-            tr.setTenMon(model.getValueAt(i, 1).toString());
+            t.setId(String.valueOf(model.getValueAt(i, 0)));
             try {
-                tr.setKetQua(Float.parseFloat(model.getValueAt(i, 2).toString()));
+                float tmp = Float.parseFloat(model.getValueAt(i, 2).toString());
+                System.out.println(tmp);
+                t.setKetQua(tmp);
+
             } catch (NumberFormatException e) {
-                tr.setKetQua(0);
+                JOptionPane.showMessageDialog(rootPane, "Lỗi định dạng điểm nhập vào !");
             }
-            if(new TienTrinhDAO().SetDiem(tr) == false) JOptionPane.showMessageDialog(rootPane, "Cập nhập điểm thất bại!");
+            t.setMaMon(lopHocPhan.getMaMon());
+            if(new TienTrinhDAO().SetDiem(t))
+            {
+                System.out.println("Cap nhap diem thanh cong cho hs" + i);
+            }
         }
-        JOptionPane.showMessageDialog(rootPane, "Cập nhật điểm thành công!");
     }
 }

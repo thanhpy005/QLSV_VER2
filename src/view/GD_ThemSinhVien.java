@@ -18,6 +18,9 @@ import java.util.Collections;
 import java.util.Properties;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
+import model.NhanVien;
 
 
 public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListener{
@@ -25,8 +28,8 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GD_ThemSinhVien.class.getName());
 
     private SinhVienDAO sinhVienDAO;
-    
-    public GD_ThemSinhVien() {
+    private NhanVien nhanVien;
+    public GD_ThemSinhVien(NhanVien s) {
         initComponents();
        
         TrangThai = new ButtonGroup();
@@ -38,14 +41,14 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         BackButton.addActionListener(this);
         MajorComboBox.addItem("IT");
         MajorComboBox.addItem("BC");
-        MajorComboBox.addItem("QT");
-        MajorComboBox.addItem("KHMT");
-        MajorComboBox.addItem("MK");
+        MajorComboBox.addItem("QTKD");
+        MajorComboBox.addItem("KH");
+        MajorComboBox.addItem("MKT");
         TrangThai.add(StudyingCheckBox);
         TrangThai.add(GraduatedCheckBox);
         GioiTinh.add(MaleCheckBox);
         GioiTinh.add(FemaleCheckBox);
-
+        nhanVien = s;
 
     }
 
@@ -85,7 +88,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         LopSpinner = new javax.swing.JSpinner();
         KhoaSpinner = new javax.swing.JSpinner();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ SINH VIÊN [Admin]");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -271,7 +274,11 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
      */
     public String getEmail(String s, String q)
     {
-        String[] arr = s.split("\\s+");
+        String nfdStr = Normalizer.normalize(s, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        String temp = pattern.matcher(nfdStr).replaceAll("");
+        String sol = temp.replaceAll("Đ", "D").replaceAll("đ", "d");
+        String[] arr = sol.split("\\s+");
         for(String i : arr) 
         {
             i.toUpperCase();
@@ -303,7 +310,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GD_ThemSinhVien().setVisible(true));
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -344,7 +351,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         else
         {
             
-            GD_Menu_Admin winAdmin = new GD_Menu_Admin();
+            GD_Menu_Admin1 winAdmin = new GD_Menu_Admin1(nhanVien);
             winAdmin.setLocationRelativeTo(null);
             winAdmin.setVisible(true);
             this.dispose();
@@ -399,7 +406,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Schoo year nên nhập số");
         }
-        if(sinhVienDAO.addSinhVien(s))
+        if(new SinhVienDAO().addSinhVien(s))
         {
             JOptionPane.showMessageDialog(rootPane, "Thêm thông tin thành công !");
         }

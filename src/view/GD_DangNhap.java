@@ -20,6 +20,10 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
         initComponents();
       
         taiKhoanDAO = new TaiKhoanDAO();
+        roleButtonGroup.add(SV);
+        roleButtonGroup.add(GV);
+        roleButtonGroup.add(NV);
+        SV.setSelected(true);
         
         LoginButton.addActionListener(this);
         ResetButton.addActionListener(this);
@@ -36,6 +40,7 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        roleButtonGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         UserTextField = new javax.swing.JTextField();
@@ -44,7 +49,9 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
         ResetButton = new javax.swing.JButton();
         QuitButton = new javax.swing.JButton();
         PassTextField = new javax.swing.JPasswordField();
-        NvCheckBox = new javax.swing.JCheckBox();
+        NV = new javax.swing.JRadioButton();
+        GV = new javax.swing.JRadioButton();
+        SV = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ SINH VIÊN");
@@ -69,7 +76,21 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
 
         QuitButton.setText("Quit");
 
-        NvCheckBox.setText("NV");
+        NV.setText("NV");
+
+        GV.setText("GV");
+        GV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GVActionPerformed(evt);
+            }
+        });
+
+        SV.setText("SV");
+        SV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SVActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,19 +100,22 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
                 .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
-                        .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(NvCheckBox, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(UserTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                            .addComponent(PassTextField))))
-                .addContainerGap(116, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(UserTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                .addComponent(PassTextField))
+                            .addComponent(NV)
+                            .addComponent(GV)
+                            .addComponent(SV)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)
+                        .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(175, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,23 +134,35 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UserTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(NvCheckBox)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(GV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SV)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LoginButton)
                     .addComponent(ResetButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(QuitButton)
                 .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void GVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GVActionPerformed
+
+    private void SVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,15 +192,18 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton GV;
     private javax.swing.JButton LoginButton;
-    private javax.swing.JCheckBox NvCheckBox;
+    private javax.swing.JRadioButton NV;
     private javax.swing.JPasswordField PassTextField;
     private javax.swing.JButton QuitButton;
     private javax.swing.JButton ResetButton;
+    private javax.swing.JRadioButton SV;
     private javax.swing.JTextField UserTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.ButtonGroup roleButtonGroup;
     // End of variables declaration//GEN-END:variables
     @Override 
     public void actionPerformed(ActionEvent e)
@@ -186,9 +225,18 @@ public class GD_DangNhap extends javax.swing.JFrame implements ActionListener{
     {
         char[] pass1 = PassTextField.getPassword();
         String passWord = new String(pass1);
-        if(taiKhoanDAO.DangNhap(UserTextField.getText(), passWord,NvCheckBox.isSelected()) == true){
-            this.dispose();
-        }
+        String username = UserTextField.getText();
+    String expectedRole = "";
+    if (SV.isSelected()) {
+        expectedRole = "SV"; 
+    } else if (GV.isSelected()) {
+        expectedRole = "GV"; 
+    } else if (NV.isSelected()) {
+        expectedRole = "NV";
+    }
+    if(taiKhoanDAO.DangNhap(username.toUpperCase(), passWord, expectedRole) == true){
+        this.dispose();
+    }
         
     }
     public void tbnResetClich()
