@@ -139,12 +139,12 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
 
         TenLabel.setBackground(new java.awt.Color(255, 255, 255));
         TenLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TenLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TenLabel.setOpaque(true);
 
         MsvLabel.setBackground(new java.awt.Color(255, 255, 255));
         MsvLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        MsvLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MsvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MsvLabel.setOpaque(true);
 
         AvatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -224,7 +224,7 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
 
         ClassLabel.setBackground(new java.awt.Color(255, 255, 255));
         ClassLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ClassLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ClassLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClassLabel.setOpaque(true);
 
         XemTienTrinhHocButton.setText("Xem tiến trình học");
@@ -448,10 +448,13 @@ public class GD_Menu_SV extends javax.swing.JFrame implements ActionListener{
         else if(e.getSource().equals(ThemAnhButton)) chonAnh();
         else if(e.getSource().equals(DangKiMonButton)) btnDangKiMonClick();
         else{
-            GD_DangNhap winD_DangNhap= new GD_DangNhap();
-            winD_DangNhap.setLocationRelativeTo(null);
-            winD_DangNhap.setVisible(true);
-            this.dispose();
+            int choice = JOptionPane.showConfirmDialog(rootPane, "Bạn chắc chắn muốn đăng xuất không?","Thông báo",JOptionPane.YES_NO_OPTION);
+            if(choice == JOptionPane.YES_OPTION){
+                GD_DangNhap winD_DangNhap= new GD_DangNhap();
+                winD_DangNhap.setLocationRelativeTo(null);
+                winD_DangNhap.setVisible(true);
+                this.dispose();
+            }
         }
     }
     public void btnDoiMkClick()

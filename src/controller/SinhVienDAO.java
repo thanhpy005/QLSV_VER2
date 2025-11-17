@@ -168,7 +168,7 @@ public class SinhVienDAO {
         String sql = "DELETE FROM SinhVien WHERE Id=?";
         String sql1 = "DELETE FROM TienTrinh WHERE Id=?";
         String sql2 = "DELETE FROM TaiKhoan WHERE Id=?";
-        String sql3 = "DELETE FROM LichHoc WHERE ID=?";
+        String sql3 = "DELETE FROM DangKiMon WHERE MaSV=?";
         try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, s);
@@ -230,6 +230,7 @@ public class SinhVienDAO {
      public boolean CapNhap2(SinhVien s)
      {
         String sql = "UPDATE SinhVien SET Name=?,Sex=?,Day_of_birth=?,MainClass=?,Address=?,Phone=?,Email=?,Status=?,Major=?,School_Year=? WHERE Id=?";
+        String sql1 = "DELETE FROM DangKiMon WHERE MaSV=?";
          try (Connection conn = DBConnection.getConnection()){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, s.getName());
@@ -243,7 +244,9 @@ public class SinhVienDAO {
             ps.setString(9, s.getMajor());
             ps.setInt(10, s.getSchoolYear());
             ps.setString(11, s.getId());
-            return ps.executeUpdate() > 0;
+            PreparedStatement ps1 = conn.prepareStatement(sql1);
+            ps1.setString(1, s.getId());
+            return ps.executeUpdate() > 0 && ps1.executeUpdate() > 0;
          } catch (Exception e) {
              e.printStackTrace();
          }

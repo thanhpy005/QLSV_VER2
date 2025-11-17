@@ -183,6 +183,9 @@ public class GD_DoiMk2 extends javax.swing.JFrame implements ActionListener{
         }
         else
         {
+            GD_Menu_GV winD_Menu_GV = new GD_Menu_GV(giangVien);
+            winD_Menu_GV.setLocationRelativeTo(null);
+            winD_Menu_GV.setVisible(true);
             this.dispose();
         }
      }

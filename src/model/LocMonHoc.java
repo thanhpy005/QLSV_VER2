@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Objects;
+
 /**
  *
  * @author ThanhNguyen
@@ -20,10 +22,6 @@ public class LocMonHoc {
         return Tiet_bat_dau;
     }
 
- 
-
-   
-
     public void setThu(String Thu) {
         this.Thu = Thu;
     }
@@ -31,6 +29,24 @@ public class LocMonHoc {
     public void setTiet_bat_dau(int Tiet_bat_dau) {
         this.Tiet_bat_dau = Tiet_bat_dau;
     }
-    
+    @Override
+    public boolean equals(Object o) {
+       
+        if (this == o) return true;
+        
+        
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        
+        LocMonHoc that = (LocMonHoc) o;
+        return Tiet_bat_dau == that.Tiet_bat_dau &&
+               Objects.equals(Thu, that.Thu); 
+    }
+
+    @Override
+    public int hashCode() {
+        
+        return Objects.hash(Thu, Tiet_bat_dau);
+    }
     
 }

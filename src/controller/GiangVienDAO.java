@@ -140,7 +140,7 @@ public class GiangVienDAO {
                 }
                 
             } 
-            return ex1 > 0 && ex2 > 0;
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }

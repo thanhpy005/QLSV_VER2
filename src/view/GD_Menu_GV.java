@@ -24,6 +24,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.Spring;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
@@ -137,39 +138,44 @@ public class GD_Menu_GV extends javax.swing.JFrame implements ActionListener{
 
         TenLabel.setBackground(new java.awt.Color(255, 255, 255));
         TenLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TenLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TenLabel.setOpaque(true);
-        getContentPane().add(TenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 233, 127, 22));
+        getContentPane().add(TenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 180, 22));
 
         DobLabel.setBackground(new java.awt.Color(255, 255, 255));
         DobLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        DobLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        DobLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DobLabel.setOpaque(true);
-        getContentPane().add(DobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 127, 20));
+        getContentPane().add(DobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 180, 20));
 
         AvatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AvatarLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(AvatarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 81, 127, 140));
+        getContentPane().add(AvatarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 127, 140));
 
         BackButton.setText("Đăng xuất");
         getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         DoiMkButton.setText("Đổi mật khẩu");
-        getContentPane().add(DoiMkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 364, 106, -1));
+        getContentPane().add(DoiMkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 590, 106, -1));
 
         ThemAnhButton.setText("Thêm ảnh");
-        getContentPane().add(ThemAnhButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        ThemAnhButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThemAnhButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ThemAnhButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Trang Giảng Viên");
+        jLabel1.setText("TRANG GIẢNG VIÊN");
         jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 6, 320, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 320, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Các lớp đang giảng dạy:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
 
         LopHocPhanTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,22 +187,26 @@ public class GD_Menu_GV extends javax.swing.JFrame implements ActionListener{
         ));
         jScrollPane1.setViewportView(LopHocPhanTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 860, 440));
 
         DangKiButton.setText("Đăng kí lớp giảng dạy");
-        getContentPane().add(DangKiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
+        getContentPane().add(DangKiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 590, -1, -1));
 
         KhoaLabel1.setBackground(new java.awt.Color(255, 255, 255));
         KhoaLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        KhoaLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        KhoaLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         KhoaLabel1.setOpaque(true);
-        getContentPane().add(KhoaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 127, 20));
+        getContentPane().add(KhoaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 180, 20));
 
         NghiButton.setText("Nghỉ dạy");
-        getContentPane().add(NghiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, -1));
+        getContentPane().add(NghiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ThemAnhButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemAnhButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ThemAnhButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,9 +265,13 @@ public class GD_Menu_GV extends javax.swing.JFrame implements ActionListener{
     }
     public void btnDkClick()
     {
-        GD_DangKiLopGiangDay winD_DangKiLopGiangDay = new GD_DangKiLopGiangDay(giangVien);
-        winD_DangKiLopGiangDay.setLocationRelativeTo(null);
-        winD_DangKiLopGiangDay.setVisible(true);
+        int choice = JOptionPane.showConfirmDialog(rootPane, "Bạn chắc chắn muốn đăng xuất không?","Thông báo",JOptionPane.YES_NO_OPTION);
+        if(choice == JOptionPane.YES_OPTION){
+            GD_DangKiLopGiangDay winD_DangKiLopGiangDay = new GD_DangKiLopGiangDay(giangVien);
+            winD_DangKiLopGiangDay.setLocationRelativeTo(null);
+            winD_DangKiLopGiangDay.setVisible(true);
+            this.dispose();
+        }
         
     }
     public void btnDoiMkClick()
@@ -269,10 +283,20 @@ public class GD_Menu_GV extends javax.swing.JFrame implements ActionListener{
     }
     public void btnNghiClick()
     {
-        if(new GiangVienDAO().xoaGV(giangVien))
+        int choice = JOptionPane.showConfirmDialog(rootPane, "Thao tác này sẽ xóa tất cả dữ liệu của bạn, bạn chắc chắn muốn nghỉ chứ ?","Thông báo",JOptionPane.YES_NO_OPTION);
+        if(choice == JOptionPane.YES_OPTION)
         {
-            JOptionPane.showMessageDialog(rootPane, "Xoa thanh cong");
+            
+            if(new GiangVienDAO().xoaGV(giangVien)==true)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Cảm ơn vì những đóng góp của bạn :3");
+                GD_DangNhap wiD_DangNhap = new GD_DangNhap();
+                wiD_DangNhap.setLocationRelativeTo(null);
+                wiD_DangNhap.setVisible(true);
+                this.dispose();
+            }
         }
+        
     }
 
    

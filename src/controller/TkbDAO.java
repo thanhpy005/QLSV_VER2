@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.TreeSet;
 import javax.swing.JOptionPane;
 import model.DangKiMon;
+import model.LocLopHocPhan;
 import model.LocMonHoc;
 import model.LopHocPhan;
 import model.MonHoc;
@@ -57,18 +58,48 @@ public class TkbDAO {
      public boolean CapNhapLHP(LopHocPhan l)
      {
          String sql = "INSERT INTO LopHocPhan(MaGV,Ma_mon,Thu,Tiet_bat_dau,So_tiet,Phong,Thoi_gian,Ki_hoc) VALUES(?,?,?,?,?,?,?,?)";
+         String sql1 = "SELECT * FROM LopHocPhan";
+         HashSet<LocLopHocPhan> list = new HashSet<>();
          try (Connection conn = DBConnection.getConnection()){
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ps.setString(1, l.getMaGV());
-             ps.setString(2, l.getMaMon());
-             ps.setString(3, l.getThu());
-             ps.setInt(4, l.getTietBatDau());
-             ps.setInt(5, l.getSoTiet());
-             ps.setString(6, l.getPhong());
-             ps.setString(7, l.getThoiGian());
-             ps.setInt(8, l.getKiHoc());
-             return ps.executeUpdate() > 0;
+             PreparedStatement ps1 = conn.prepareStatement(sql1);
+             ResultSet rs = ps1.executeQuery();
+             while(rs.next())
+             {
+                 LocLopHocPhan ll = new LocLopHocPhan();
+                 ll.setThu(rs.getString("Thu"));
+                 ll.setPhong(rs.getString("Phong"));
+                 ll.setTiet_bat_dau(rs.getInt("Tiet_bat_dau"));
+                 ll.setKi_hoc(rs.getInt("Ki_hoc"));
+                 list.add(ll);
+             }
+             int check = list.size();
+             LocLopHocPhan lll = new LocLopHocPhan();
+             
+             lll.setThu(l.getThu());
+             lll.setPhong(l.getPhong());
+             lll.setTiet_bat_dau(l.getTietBatDau());
+             lll.setKi_hoc(l.getKiHoc());
+             list.add(lll);
+             int ex=0;
+             if(check != list.size()){
+                for(LocLopHocPhan i : list)
+                {
+                    System.out.println(i.getThu() + " " +i.getTiet_bat_dau() + " "+i.getPhong());
+                }
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, l.getMaGV());
+                ps.setString(2, l.getMaMon());
+                ps.setString(3, l.getThu());
+                ps.setInt(4, l.getTietBatDau());
+                ps.setInt(5, l.getSoTiet());
+                ps.setString(6, l.getPhong());
+                ps.setString(7, l.getThoiGian());
+                ps.setInt(8, l.getKiHoc());
+                ex = ps.executeUpdate();
+             }
+             return ex>0;
          } catch (Exception e) {
+             
              e.printStackTrace();
          }
          return false;

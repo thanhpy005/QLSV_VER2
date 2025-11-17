@@ -330,7 +330,6 @@ public class GD_ThemGiangVien extends javax.swing.JFrame implements ActionListen
         NameTextField.setText("");
         MaleCheckBox.setSelected(false);
         FemaleCheckBox.setSelected(false);
-        
        
         PhoneTextField.setText("");
   

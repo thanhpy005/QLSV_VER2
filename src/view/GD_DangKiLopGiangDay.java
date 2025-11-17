@@ -313,23 +313,39 @@ class ButtonEditor6 extends AbstractCellEditor implements TableCellEditor, Actio
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        LopHocPhan l = new LopHocPhan();
-        l.setMaGV(giangVien.getID());
-        l.setMaMon(table.getValueAt(currentRow, 0).toString());
-        l.setPhong(table.getValueAt(currentRow, 2).toString());
-        l.setTietBatDau(Integer.parseInt(table.getValueAt(currentRow, 3).toString()));
-        l.setSoTiet(Integer.parseInt(table.getValueAt(currentRow, 4).toString()));
-        l.setThu(table.getValueAt(currentRow, 5).toString());
-        l.setThoiGian(table.getValueAt(currentRow, 6).toString());
-        l.setKiHoc(kihoc);
-        
-        if(new TkbDAO().CapNhapLHP(l))
-            {
-                JOptionPane.showMessageDialog(null, "Cập nhập thời khóa biểu thành công !");
+        try{
+            LopHocPhan l = new LopHocPhan();
+            l.setMaGV(giangVien.getID());
+            l.setMaMon(table.getValueAt(currentRow, 0).toString());
+            l.setPhong(table.getValueAt(currentRow, 2).toString());
+            l.setTietBatDau(Integer.parseInt(table.getValueAt(currentRow, 3).toString()));
+            l.setSoTiet(Integer.parseInt(table.getValueAt(currentRow, 4).toString()));
+            l.setThu(table.getValueAt(currentRow, 5).toString());
+            l.setThoiGian(table.getValueAt(currentRow, 6).toString());
+            l.setKiHoc(kihoc);
+
+            if(new TkbDAO().CapNhapLHP(l))
+                {
+                    JOptionPane.showMessageDialog(null, "Đăng kí lớp dạy thành công!");
+                }
+            else{
+                    JOptionPane.showMessageDialog(null, "Trùng lịch với lớp học khác đang giảng dạy!");
+                }
+            fireEditingCanceled();
+        }catch(Exception ex)
+        {
+            if (ex.getMessage() != null && ex.getMessage().contains("SQLITE_CONSTRAINT_UNIQUE")) {
+               
+                JOptionPane.showMessageDialog(table, "Trùng lịch với lớp giảng dạy khác!");
+            } else {
+                
+                JOptionPane.showMessageDialog(table, "Đã xảy ra lỗi: " + ex.getMessage());
+                ex.printStackTrace(); 
             }
-        else{
-                JOptionPane.showMessageDialog(null, "Trùng lịch học với môn khác hoặc môn học đã được đăng kí");
-            }
+            
+           
+            fireEditingCanceled();
+        }
         
         
     }

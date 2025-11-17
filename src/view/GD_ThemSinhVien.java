@@ -367,7 +367,7 @@ public class GD_ThemSinhVien extends javax.swing.JFrame implements ActionListene
         {
             String khoaString = KhoaSpinner.getValue().toString();
             String msvString = i.getId().substring(1,3);
-            String t2 = i.getId().substring(5);
+            String t2 = i.getId().substring(i.getId().length()-3);
             int t3 = Integer.parseInt(t2);
             if(khoaString.equals(msvString))
             {

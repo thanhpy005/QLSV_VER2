@@ -41,7 +41,6 @@ public class GD_Menu_Admin1 extends javax.swing.JFrame implements ActionListener
         AddButton.addActionListener(this);
         UpdateButton.addActionListener(this);
         AddNvButton.addActionListener(this);
-        AddGvButton.addActionListener(this);
         ThemAnhButton.addActionListener(this);
         BackButton1.addActionListener(this);
         ChangePwButton1.addActionListener(this);
@@ -116,7 +115,7 @@ public class GD_Menu_Admin1 extends javax.swing.JFrame implements ActionListener
 
         AvatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AvatarLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(AvatarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 81, 127, 140));
+        getContentPane().add(AvatarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 127, 140));
 
         LopLabel.setBackground(new java.awt.Color(255, 255, 255));
         LopLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -181,18 +180,18 @@ public class GD_Menu_Admin1 extends javax.swing.JFrame implements ActionListener
                 ThemAnhButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(ThemAnhButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        getContentPane().add(ThemAnhButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Trang quản lý ");
+        jLabel1.setText("TRANG NHÂN VIÊN");
         jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 6, 320, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 320, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("MENU:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 52, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
         AddGvButton.setText("Thêm giảng viên");
         getContentPane().add(AddGvButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 400, 40));
@@ -289,10 +288,13 @@ public class GD_Menu_Admin1 extends javax.swing.JFrame implements ActionListener
         else if(e.getSource().equals(AddGvButton)) btnAddGvClick();    
         else if(e.getSource().equals(ThemAnhButton)) chonAnh();
         else{
-            GD_DangNhap winD_DangNhap= new GD_DangNhap();
-            winD_DangNhap.setLocationRelativeTo(null);
-            winD_DangNhap.setVisible(true);
-            this.dispose();
+            int choice = JOptionPane.showConfirmDialog(rootPane, "Bạn chắc chắn muốn đăng xuất không?","Thông báo",JOptionPane.YES_NO_OPTION);
+            if(choice == JOptionPane.YES_OPTION){
+                GD_DangNhap winD_DangNhap= new GD_DangNhap();
+                winD_DangNhap.setLocationRelativeTo(null);
+                winD_DangNhap.setVisible(true);
+                this.dispose();
+            }
         }
     }
     public void btnAddSvClick()
