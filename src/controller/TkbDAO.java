@@ -6,8 +6,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
 import javax.swing.JOptionPane;
 import model.DangKiMon;
+import model.LocMonHoc;
 import model.LopHocPhan;
 import model.MonHoc;
 import model.SinhVien;
@@ -15,13 +18,37 @@ import model.SinhVien;
 public class TkbDAO {
      public boolean CapNhapTkb(LopHocPhan l, SinhVien s)
     {
+        HashSet<LocMonHoc> list = new HashSet<>();
         String sql = "INSERT INTO DangKiMon(MaLHP,MaSV,MaMon) VALUES(?,?,?)";
+        String sql1 = "SELECT * FROM DangKiMon WHERE MaSV=?";
         try (Connection conn = DBConnection.getConnection()){
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, l.getMaLHP());
-            ps.setString(2,s.getId());
-            ps.setString(3, l.getMaMon());
-            return ps.executeUpdate() > 0;
+            PreparedStatement ps0 = conn.prepareStatement(sql1);
+            ps0.setString(1, s.getId());
+            ResultSet rs = ps0.executeQuery();
+            while(rs.next())
+            {
+                LopHocPhan tmp = getLHP(rs.getInt("MaLHP"));
+                LocMonHoc lmh = new LocMonHoc();
+                lmh.setThu(tmp.getThu());
+                lmh.setTiet_bat_dau(tmp.getTietBatDau());
+                list.add(lmh);
+            }
+            LocMonHoc tmp2 = new LocMonHoc();
+            tmp2.setThu(l.getThu());
+            tmp2.setTiet_bat_dau(l.getTietBatDau());
+            int check1 = list.size();
+            list.add(tmp2);
+            int ex = 0;
+            if(check1 != list.size())
+            {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, l.getMaLHP());
+                ps.setString(2,s.getId());
+                ps.setString(3, l.getMaMon());
+                ex = ps.executeUpdate();
+            }
+            
+            return ex > 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
